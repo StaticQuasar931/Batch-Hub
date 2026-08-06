@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <script>
@@ -12,16 +12,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#101217">
   <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="description" content="Batch Hub is a StaticQuasar931 arcade launch page for working unblocked browser games, meme games, brainrot games, and school friendly picks hosted through GitHub and jsDelivr.">
+  <meta name="description" content="Batch Hub is a StaticQuasar931 arcade launch page for working unblocked browser games, brainrot games, meme picks, WebGL games, and school friendly pages hosted through GitHub and jsDelivr.">
   <meta property="og:title" content="Batch Hub Arcade | StaticQuasar931">
-  <meta property="og:description" content="Working unblocked browser games selected for StaticQuasar931 players. Brainrot picks, clickers, runners, and lightweight arcade pages.">
-  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/StaticQuasar931/Batch-Hub@main/sahur/preview.jpg">
+  <meta property="og:description" content="Working fullscreen unblocked browser games selected for StaticQuasar931 players.">
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Pok12d/ta@main/tungobby/TemplateData/preview.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://staticquasar931.github.io/Batch-Hub/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Batch Hub Arcade | StaticQuasar931">
-  <meta name="twitter:description" content="Working unblocked browser games selected for StaticQuasar931 players.">
-  <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/StaticQuasar931/Batch-Hub@main/sahur/preview.jpg">
+  <meta name="twitter:description" content="Working fullscreen unblocked browser games selected for StaticQuasar931 players.">
+  <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Pok12d/ta@main/tungobby/TemplateData/preview.png">
   <link rel="canonical" href="https://staticquasar931.github.io/Batch-Hub/">
   <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png">
   <title>Batch Hub Arcade | StaticQuasar931 Games</title>
@@ -52,8 +52,9 @@
     *{box-sizing:border-box}
     html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
     body{background:radial-gradient(circle at 12% 4%,rgba(94,225,255,.18),transparent 28%),radial-gradient(circle at 86% 14%,rgba(155,255,183,.14),transparent 26%),linear-gradient(135deg,#101217 0%,#181b22 56%,#11161a 100%)}
-    #staticMenu{position:fixed;left:12px;top:12px;z-index:2147483640;display:flex;gap:10px;align-items:center;user-select:none;padding:10px 14px;border-radius:10px;background:rgba(12,15,22,.88);border:1px solid rgba(94,225,255,.36);color:#e8f3ff;box-shadow:var(--shadow);font:700 14px/1.2 Arial,Helvetica,sans-serif;backdrop-filter:blur(10px)}
-    #staticMenu a{color:var(--brand);text-decoration:none}
+    
+    #staticMenu{position:fixed;left:12px;top:12px;z-index:2147483640;display:flex;gap:10px;align-items:center;user-select:none;padding:10px 14px;border-radius:10px;background:rgba(12,15,22,.88);border:1px solid rgba(94,225,255,.36);color:#e8f3ff;box-shadow:0 16px 38px rgba(0,0,0,.38);font:700 14px/1.2 Arial,Helvetica,sans-serif;backdrop-filter:blur(10px)}
+    #staticMenu a{color:#5ee1ff;text-decoration:none}
     #closeStaticMenu{color:#ff6b6b;cursor:pointer;padding:2px 7px;border-radius:6px;background:rgba(255,255,255,.07)}
     #staticSlideMenu{position:fixed;bottom:24px;right:24px;z-index:2147483640;width:100px;height:100px;pointer-events:none;opacity:0;transform:translateX(140px) scale(.96)}
     #staticSlideMenu a,#staticSlideMenu img{display:block;width:100%;height:100%}
@@ -61,7 +62,9 @@
     .slide-in{animation:slideIn 2s ease forwards}.slide-out{animation:slideOut 2s ease forwards}
     @keyframes slideIn{from{opacity:0;transform:translateX(140px) scale(.96)}to{opacity:1;transform:translateX(0) scale(1)}}
     @keyframes slideOut{from{opacity:1;transform:translateX(0) scale(1)}to{opacity:0;transform:translateX(140px) scale(.96)}}
-    .wrap{max-width:1180px;margin:0 auto;padding:86px 18px 42px}
+    .seo-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+    @media(max-width:760px){#staticMenu{font-size:12px;max-width:calc(100vw - 26px)}#staticSlideMenu{width:84px;height:84px;right:14px;bottom:14px}}
+    .wrap{max-width:1240px;margin:0 auto;padding:86px 18px 42px}
     .top{display:grid;grid-template-columns:1.02fr .98fr;gap:24px;align-items:end;min-height:calc(100vh - 156px)}
     h1{margin:0;font-size:clamp(42px,8vw,92px);line-height:.9;letter-spacing:0}
     .lead{max-width:720px;color:var(--muted);font-size:clamp(16px,2.2vw,21px);line-height:1.45;margin:18px 0 0}
@@ -87,9 +90,8 @@
     .tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
     .tags span{font-size:12px;font-weight:800;color:#071016;background:var(--brand);border-radius:999px;padding:5px 8px}
     .note{margin-top:22px;border-left:3px solid var(--brand);padding:12px 14px;background:rgba(255,255,255,.06);color:#dce8f2;line-height:1.45}
-    .seo-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
     @media(max-width:880px){.top{grid-template-columns:1fr;min-height:auto}.grid{grid-template-columns:1fr 1fr}.feature{max-width:680px}.wrap{padding-top:82px}}
-    @media(max-width:560px){.grid{grid-template-columns:1fr}.feature{grid-template-columns:1fr 1fr}.actions a{width:100%;justify-content:center}.sectionHead{display:block}.sectionHead p{margin-top:8px}#staticMenu{font-size:12px;max-width:calc(100vw - 26px)}#staticSlideMenu{width:84px;height:84px;right:14px;bottom:14px}}
+    @media(max-width:560px){.grid{grid-template-columns:1fr}.feature{grid-template-columns:1fr 1fr}.actions a{width:100%;justify-content:center}.sectionHead{display:block}.sectionHead p{margin-top:8px}}
   </style>
 </head>
 <body>
@@ -106,27 +108,38 @@
     <section class="top" aria-labelledby="pageTitle">
       <div>
         <h1 id="pageTitle">Batch Hub Arcade</h1>
-        <p class="lead">A clean launch page for working browser picks built for StaticQuasar931 players. This batch leans into brainrot searches because your audience already responds to meme, horror, runner, and clicker pages.</p>
+        <p class="lead">A clean launch page for fullscreen browser picks built for StaticQuasar931 players. This update adds the Drive files that passed runtime testing while keeping each playable page simple, direct, and GitHub/jsDelivr friendly.</p>
         <div class="actions">
-          <a class="primary" href="https://staticquasar931.github.io/Batch-Hub/sahur/">Play newest pick</a>
+          <a class="primary" href="https://staticquasar931.github.io/Batch-Hub/tung-tung-sahur-obby-challenge/">Play newest pick</a>
           <a href="https://staticquasar931.github.io/Batch-Hub/">Open GitHub Pages hub</a>
           <a href="https://sites.google.com/view/staticquasar931/gm3z">Main StaticQuasar931 site</a>
         </div>
       </div>
       <div class="feature" aria-label="Featured game art">
-        <div class="shot"><img src="sahur/preview.jpg" alt="Sahur preview"></div>
-        <div class="shot contain"><img src="tung-tung-sahur-clicker/tung.png" alt="Tung Tung Sahur Clicker preview"></div>
+        <div class="shot"><img src="https://cdn.jsdelivr.net/gh/Pok12d/ta@main/tungobby/TemplateData/preview.png" alt="Tung Tung Sahur Obby Challenge preview"></div>
+        <div class="shot contain"><img src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png" alt="Tralalero Tralala Escape Tung Tung Sahur preview"></div>
+        <div class="shot contain"><img src="https://cdn.jsdelivr.net/gh/netclassroom/998800@main/n/TemplateData/webgl-logo.png" alt="Taco Stand preview"></div>
         <div class="shot contain"><img src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png" alt="StaticQuasar931 arcade icon"></div>
-        <div class="shot"><img src="tung-tung-sahur-clicker/background.png" alt="Tung Tung Sahur Clicker background art"></div>
       </div>
     </section>
-
     <section aria-labelledby="gamesTitle">
       <div class="sectionHead">
         <h2 id="gamesTitle">Playable Pages</h2>
-        <p>Each card opens the real GitHub Pages game page. The pages themselves use jsDelivr asset paths when hosted, with local fallback for testing.</p>
+        <p>Each card opens a real GitHub Pages game page. Game assets use jsDelivr paths, and each game page is fullscreen without an iframe wrapper.</p>
       </div>
       <div class="grid">
+        <a class="card" href="https://staticquasar931.github.io/Batch-Hub/tung-tung-sahur-obby-challenge/">
+          <span class="art"><img src="https://cdn.jsdelivr.net/gh/Pok12d/ta@main/tungobby/TemplateData/preview.png" alt="Tung Tung Sahur Obby Challenge preview"></span>
+          <span class="meta"><strong>Tung Tung Sahur Obby Challenge</strong><small>A fullscreen Unity WebGL obby pick for browser and Chromebook play.</small><span class="tags"><span>Brainrot</span><span>Fullscreen</span><span>WebGL</span></span></span>
+        </a>
+        <a class="card" href="https://staticquasar931.github.io/Batch-Hub/tralalero-tralala-escape-tung-tung-sahur/">
+          <span class="art contain"><img src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png" alt="Tralalero Tralala Escape Tung Tung Sahur preview"></span>
+          <span class="meta"><strong>Tralalero Tralala Escape Tung Tung Sahur</strong><small>A GamePix HTML5 brainrot runner cleaned for fullscreen browser play.</small><span class="tags"><span>Brainrot</span><span>Fullscreen</span><span>WebGL</span></span></span>
+        </a>
+        <a class="card" href="https://staticquasar931.github.io/Batch-Hub/taco-stand/">
+          <span class="art contain"><img src="https://cdn.jsdelivr.net/gh/netclassroom/998800@main/n/TemplateData/webgl-logo.png" alt="Taco Stand preview"></span>
+          <span class="meta"><strong>Taco Stand</strong><small>A fullscreen Unity WebGL food stand browser game cleaned for GitHub and jsDelivr launching.</small><span class="tags"><span>Unity</span><span>Food</span><span>Arcade</span></span></span>
+        </a>
         <a class="card" href="https://staticquasar931.github.io/Batch-Hub/sahur/">
           <span class="art"><img src="sahur/preview.jpg" alt="Sahur preview"></span>
           <span class="meta"><strong>Sahur</strong><small>Real Unity WebGL Tung/Sahur pick from itch. Clean direct canvas wrapper, mobile-friendly layout, no iframe wrapper.</small><span class="tags"><span>Unity</span><span>Brainrot</span><span>Local</span></span></span>
@@ -140,7 +153,7 @@
           <span class="meta"><strong>Ultimate Brainrot Battle</strong><small>Defold brainrot battler. Fixed CDN slug so the engine scripts load from the real repo path.</small><span class="tags"><span>Battle</span><span>Brainrot</span><span>Defold</span></span></span>
         </a>
       </div>
-      <p class="note">Brainrot is used as a search and navigation label because players are actively looking for those pages. The collection is still for anyone who wants quick browser arcade games.</p>
+      <p class="note">Brainrot and meme labels are used because players search for those terms. The pages are still general browser arcade picks for anyone.</p>
     </section>
   </main>
   <script>
@@ -223,7 +236,7 @@
   </script>
   <div class="seo-hidden" aria-hidden="true">
     <h1>Batch Hub Arcade unblocked</h1>
-    <p>Batch Hub Arcade, StaticQuasar931 Batch Hub, unblocked games, brainrot games, Tung Tung Sahur, Tung Tung Tung Sahur, Sahur, Tung Tung Sahur Clicker, Ultimate Brainrot Battle, meme games, runner games, clicker games, Chromebook games, school games, working at school, browser games, StaticQuasar931, Static Quasar 931, Static 931, StaticQ931. More games: https://sites.google.com/view/staticquasar931/gm3z Requests: https://sites.google.com/view/staticquasar931/google-form Discord: https://discord.gg/DP2hM7RRhR Instagram: https://www.instagram.com/freeschoolgamepage/</p>
+    <p>Batch Hub Arcade, StaticQuasar931 Batch Hub, unblocked games, brainrot games, Tung Tung Sahur, Tung Tung Tung Sahur, Tung Tung Sahur Obby Challenge, Tralalero Tralala Escape Tung Tung Sahur, Taco Stand, Sahur, Ultimate Brainrot Battle, Chromebook games, school games, working at school, browser games, StaticQuasar931, Static Quasar 931, Static 931, StaticQ931. More games: https://sites.google.com/view/staticquasar931/gm3z Requests: https://sites.google.com/view/staticquasar931/google-form Discord: https://discord.gg/DP2hM7RRhR Instagram: https://www.instagram.com/freeschoolgamepage/</p>
   </div>
 </body>
 </html>

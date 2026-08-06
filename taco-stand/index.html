@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <base href="https://cdn.jsdelivr.net/gh/netclassroom/998800@main/n/">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#101217">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="description" content="Play Taco Stand unblocked on StaticQuasar931. A fullscreen Unity WebGL food stand browser game cleaned for GitHub and jsDelivr launching.">
+  <meta property="og:title" content="Taco Stand Unblocked | StaticQuasar931 Games">
+  <meta property="og:description" content="Play Taco Stand unblocked on StaticQuasar931. A fullscreen Unity WebGL food stand browser game cleaned for GitHub and jsDelivr launching.">
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/netclassroom/998800@main/n/TemplateData/webgl-logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://staticquasar931.github.io/Batch-Hub/taco-stand/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Taco Stand Unblocked | StaticQuasar931 Games">
+  <meta name="twitter:description" content="Play Taco Stand unblocked on StaticQuasar931. A fullscreen Unity WebGL food stand browser game cleaned for GitHub and jsDelivr launching.">
+  <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/netclassroom/998800@main/n/TemplateData/webgl-logo.png">
+  <link rel="canonical" href="https://staticquasar931.github.io/Batch-Hub/taco-stand/">
+  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png">
+  <title>Taco Stand Unblocked | StaticQuasar931 Games</title>
+  <!-- Google Analytics (Google Sites compatible VSNL 1.21) -->
+<script>
+  (function loadGAForGoogleSites(w, d, id){
+    w.dataLayer = w.dataLayer || [];
+    w.gtag = w.gtag || function(){ w.dataLayer.push(arguments); };
+
+    w.gtag('js', new Date());
+
+    var s = d.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
+
+    var first = d.getElementsByTagName('script')[0];
+    (first && first.parentNode ? first.parentNode : d.head || d.documentElement).insertBefore(s, first || null);
+
+    w.gtag('config', id, {
+      cookie_domain: (w.location && w.location.hostname) ? w.location.hostname : 'auto',
+      cookie_flags: 'SameSite=None;Secure',
+      send_page_view: true
+    });
+  })(window, document, 'G-5JZHSM4RCW');
+</script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/netclassroom/998800@main/n/TemplateData/style.css">
+  <style>
+    html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#000;color:#fff;font-family:Arial,Helvetica,sans-serif}
+    #unity-container{position:fixed;inset:0;width:100vw;height:100vh}
+    #unity-canvas{width:100%;height:100%;background:#000;display:block}
+    
+    #staticMenu{position:fixed;left:12px;top:12px;z-index:2147483640;display:flex;gap:10px;align-items:center;user-select:none;padding:10px 14px;border-radius:10px;background:rgba(12,15,22,.88);border:1px solid rgba(94,225,255,.36);color:#e8f3ff;box-shadow:0 16px 38px rgba(0,0,0,.38);font:700 14px/1.2 Arial,Helvetica,sans-serif;backdrop-filter:blur(10px)}
+    #staticMenu a{color:#5ee1ff;text-decoration:none}
+    #closeStaticMenu{color:#ff6b6b;cursor:pointer;padding:2px 7px;border-radius:6px;background:rgba(255,255,255,.07)}
+    #staticSlideMenu{position:fixed;bottom:24px;right:24px;z-index:2147483640;width:100px;height:100px;pointer-events:none;opacity:0;transform:translateX(140px) scale(.96)}
+    #staticSlideMenu a,#staticSlideMenu img{display:block;width:100%;height:100%}
+    #staticSlideMenu img{object-fit:contain;border:0;background:transparent;transition:opacity .25s ease}
+    .slide-in{animation:slideIn 2s ease forwards}.slide-out{animation:slideOut 2s ease forwards}
+    @keyframes slideIn{from{opacity:0;transform:translateX(140px) scale(.96)}to{opacity:1;transform:translateX(0) scale(1)}}
+    @keyframes slideOut{from{opacity:1;transform:translateX(0) scale(1)}to{opacity:0;transform:translateX(140px) scale(.96)}}
+    .seo-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+    @media(max-width:760px){#staticMenu{font-size:12px;max-width:calc(100vw - 26px)}#staticSlideMenu{width:84px;height:84px;right:14px;bottom:14px}}
+  </style>
+</head>
+<body>
+  <div id="unity-container"><canvas id="unity-canvas" tabindex="-1"></canvas></div>
+  <div id="staticMenu" role="region" aria-label="StaticQuasar931 menu">
+    <a href="https://sites.google.com/view/staticquasar931/gm3z" target="_blank" rel="noopener">More Unblocked Games by Static</a>
+    <span id="closeStaticMenu" title="Hide temporarily">x</span>
+  </div>
+  <div id="staticSlideMenu" aria-live="polite">
+    <a id="staticSlideLink" href="https://sites.google.com/view/staticquasar931/google-form" target="_blank" rel="noopener" aria-label="Open StaticQuasar931 Google Form">
+      <img id="staticSlideImg" src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png" alt="StaticQuasar931 Google Form for game feedback and requests">
+    </a>
+  </div>
+  <script>
+    var container = document.querySelector("#unity-container");
+    var canvas = document.querySelector("#unity-canvas");
+    function unityShowBanner(msg, type){ console[type === "error" ? "error" : "warn"]("[Unity Banner] " + msg); }
+    var mergeConfig = { files:[{name:"web.data.gz",parts:4},{name:"web.wasm.gz",parts:3}], basePath:"https://cdn.jsdelivr.net/gh/netclassroom/998800@main/n/Build/" };
+    var mergedFiles = {};
+    async function mergeFileParts(baseName, partCount){
+      var chunks = [];
+      for(var i = 0; i < partCount; i++){
+        var partUrl = mergeConfig.basePath + baseName + ".part" + i;
+        var response = await fetch(partUrl);
+        if(!response.ok) throw new Error("Failed to load " + partUrl + ": " + response.status);
+        var reader = response.body.getReader();
+        var received = 0;
+        var partChunks = [];
+        for(;;){
+          var item = await reader.read();
+          if(item.done) break;
+          partChunks.push(item.value);
+          received += item.value.length;
+        }
+        var partData = new Uint8Array(received);
+        var offset = 0;
+        partChunks.forEach(function(chunk){ partData.set(chunk, offset); offset += chunk.length; });
+        chunks.push(partData);
+      }
+      var totalSize = chunks.reduce(function(acc,c){ return acc + c.length; }, 0);
+      var merged = new Uint8Array(totalSize);
+      var off = 0;
+      chunks.forEach(function(chunk){ merged.set(chunk, off); off += chunk.length; });
+      return merged.buffer;
+    }
+    async function mergeAllFiles(){
+      for(var i = 0; i < mergeConfig.files.length; i++){
+        var file = mergeConfig.files[i];
+        mergedFiles[file.name] = await mergeFileParts(file.name, file.parts);
+      }
+    }
+    var originalFetch = window.fetch;
+    window.fetch = function(url, options){
+      if(typeof url === "string"){
+        for(var i = 0; i < mergeConfig.files.length; i++){
+          var file = mergeConfig.files[i];
+          if((url.endsWith(file.name) || url.indexOf("/" + file.name) !== -1) && mergedFiles[file.name]){
+            return Promise.resolve(new Response(mergedFiles[file.name], {status:200, headers:{"Content-Type":"application/octet-stream"}}));
+          }
+        }
+      }
+      return originalFetch.apply(this, arguments);
+    };
+    var buildUrl = "https://cdn.jsdelivr.net/gh/netclassroom/998800@main/n/Build";
+    var loaderUrl = buildUrl + "/web.loader.js";
+    var config = {
+      dataUrl: buildUrl + "/web.data.gz",
+      frameworkUrl: buildUrl + "/web.framework.js",
+      codeUrl: buildUrl + "/web.wasm.gz",
+      streamingAssetsUrl:"https://cdn.jsdelivr.net/gh/netclassroom/998800@main/n/StreamingAssets",
+      companyName:"Wave Infinite",
+      productName:"Taco Stand",
+      productVersion:"0.1",
+      showBanner:unityShowBanner
+    };
+    if(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)){
+      container.className = "unity-mobile";
+      canvas.className = "unity-mobile";
+    }
+    mergeAllFiles().then(function(){
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = function(){
+        createUnityInstance(canvas, config, function(progress){ console.log("Unity load progress:", Math.round(progress * 100) + "%"); }).then(function(){ canvas.focus(); }).catch(console.error);
+      };
+      document.body.appendChild(script);
+    }).catch(function(err){ console.error("[MERGE] Fatal error:", err); });
+  </script>
+  <script>
+    console.log("StaticQuasar931 Game - https://sites.google.com/view/staticquasar931/gm3z");
+    window.onbeforeunload = function(){ return "Are you sure you want to leave? Your session may be interrupted."; };
+    (function(){
+      var menu = document.getElementById("staticMenu");
+      var btn = document.getElementById("closeStaticMenu");
+      var key = "sq931_staticMenu_hidden_until_taco-stand";
+      var hidden = false;
+      function visibleMenu(){ return Date.now() >= Number(localStorage.getItem(key) || 0) && !hidden; }
+      function apply(){ if(menu) menu.style.display = visibleMenu() ? "flex" : "none"; }
+      if(btn) btn.addEventListener("click", function(){ localStorage.setItem(key, String(Date.now() + 180000)); apply(); setTimeout(apply, 180000); });
+      apply();
+      setInterval(apply, 30000);
+      var wrap = document.getElementById("staticSlideMenu");
+      var a = document.getElementById("staticSlideLink");
+      var img = document.getElementById("staticSlideImg");
+      var rotation = [
+        {src:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png", alt:"StaticQuasar931 Google Form for game feedback and requests", link:"https://sites.google.com/view/staticquasar931/google-form", label:"Open StaticQuasar931 Google Form"},
+        {src:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Join_Our_DC_StaticQuassar931_lcplrf.png", alt:"Join the StaticQuasar931 Discord", link:"https://discord.gg/DP2hM7RRhR", label:"Join the StaticQuasar931 Discord"},
+        {src:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Follow-us--IG", alt:"Follow StaticQuasar931 on Instagram", link:"https://www.instagram.com/freeschoolgamepage/", label:"Follow StaticQuasar931 on Instagram"}
+      ];
+      rotation.forEach(function(o){ var p = new Image(); p.src = o.src; });
+      var idx = 0;
+      function delay(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
+      function applySlide(state){
+        if(!a || !img) return;
+        a.href = state.link;
+        a.setAttribute("aria-label", state.label);
+        img.alt = state.alt;
+        img.style.opacity = "0";
+        setTimeout(function(){ img.src = state.src; }, 80);
+        img.onload = function(){ img.style.opacity = "1"; };
+      }
+      async function cycle(){
+        for(;;){
+          if(wrap && !hidden){
+            applySlide(rotation[idx]);
+            wrap.style.pointerEvents = "auto";
+            wrap.classList.remove("slide-out");
+            wrap.classList.add("slide-in");
+            await delay(7000);
+            wrap.classList.remove("slide-in");
+            wrap.classList.add("slide-out");
+            await delay(2000);
+            wrap.style.pointerEvents = "none";
+          }
+          await delay(20000);
+          idx = (idx + 1) % rotation.length;
+        }
+      }
+      cycle();
+      var combo = {y:false,u:false,i:false};
+      var sequence = "";
+      function setHidden(value){
+        hidden = value;
+        apply();
+        if(wrap){ wrap.style.display = hidden ? "none" : "block"; wrap.classList.remove("slide-in","slide-out"); }
+      }
+      document.addEventListener("keydown", function(e){
+        var k = String(e.key || "").toLowerCase();
+        if(k === "y" || k === "u" || k === "i"){
+          combo[k] = true;
+          sequence = (sequence + k).slice(-3);
+          if((combo.y && combo.u && combo.i) || sequence === "yui"){
+            setHidden(!hidden);
+            combo = {y:false,u:false,i:false};
+            sequence = "";
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        }
+      }, true);
+      document.addEventListener("keyup", function(e){
+        var k = String(e.key || "").toLowerCase();
+        if(Object.prototype.hasOwnProperty.call(combo, k)) combo[k] = false;
+      }, true);
+    })();
+  </script>
+  <div class="seo-hidden" aria-hidden="true">
+    <h1>Taco Stand unblocked</h1>
+    <p>Taco Stand, Taco Stand, food stand game, restaurant browser game, Wave Infinite, unblocked games, browser games, Chromebook games, school friendly games, fullscreen browser game, StaticQuasar931, Static Quasar 931, Static 931, StaticQ931. More games: https://sites.google.com/view/staticquasar931/gm3z Requests: https://sites.google.com/view/staticquasar931/google-form Discord: https://discord.gg/DP2hM7RRhR Instagram: https://www.instagram.com/freeschoolgamepage/</p>
+  </div>
+</body>
+</html>
