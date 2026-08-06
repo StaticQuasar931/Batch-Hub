@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <script>
     (function(){
-      var cdn = "https://cdn.jsdelivr.net/gh/StaticQuasar931/Batch%20Hub@main/tung-tung-sahur-clicker/";
+      var cdn = "https://cdn.jsdelivr.net/gh/StaticQuasar931/Batch-Hub@main/tung-tung-sahur-clicker/";
       var isLocal = location.protocol === "file:" || /^(localhost|127\.0\.0\.1)$/i.test(location.hostname);
       document.write('<base href="' + (isLocal ? "./" : cdn) + '">');
     })();
@@ -98,7 +98,7 @@
 <body>
   
   <div id="staticMenu" role="region" aria-label="StaticQuasar menu">
-    <a href="https://sites.google.com/view/staticquasar931/gm3z" target="_blank" rel="noopener">StaticQuasar931 Games</a>
+    <a href="https://sites.google.com/view/staticquasar931/gm3z" target="_blank" rel="noopener">More Unblocked Games by Static</a>
     <span id="closeStaticMenu" title="Hide temporarily">x</span>
   </div>
   <div id="staticSlideMenu" aria-live="polite">
@@ -106,7 +106,7 @@
       <img id="staticSlideImg" src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png" alt="StaticQuasar931 Google Form for feedback and requests">
     </a>
   </div>
-  <img src="New Project.png" id="back" alt="">
+  <img src="background.png" id="back" alt="">
   <div class="hud">
     <h2 id="monH2">money: 0</h2>
     <h2 id="monH22">click power: 1</h2>
@@ -225,19 +225,35 @@
       })();
     })();
     (function(){
-      var seq = [];
+      var combo = {y:false,u:false,i:false};
+      var sequence = "";
+      var hidden = false;
+      function setHidden(value){
+        hidden = value;
+        ["staticMenu","staticSlideMenu"].forEach(function(id){
+          var el = document.getElementById(id);
+          if(!el) return;
+          el.style.display = hidden ? "none" : (id === "staticMenu" ? "flex" : "block");
+        });
+      }
       window.addEventListener("keydown", function(e){
-        seq.push(String(e.key || "").toLowerCase());
-        if(seq.length > 3) seq.shift();
-        if(seq.join("") === "yui"){
-          ["staticMenu","staticSlideMenu"].forEach(function(id){
-            var el = document.getElementById(id);
-            if(!el) return;
-            var hidden = el.style.display === "none" || getComputedStyle(el).display === "none";
-            el.style.display = hidden ? (id === "staticMenu" ? "flex" : "block") : "none";
-          });
+        var k = String(e.key || "").toLowerCase();
+        if(k === "y" || k === "u" || k === "i"){
+          combo[k] = true;
+          sequence = (sequence + k).slice(-3);
+          if((combo.y && combo.u && combo.i) || sequence === "yui"){
+            setHidden(!hidden);
+            combo = {y:false,u:false,i:false};
+            sequence = "";
+            e.preventDefault();
+            e.stopPropagation();
+          }
         }
-      });
+      }, true);
+      window.addEventListener("keyup", function(e){
+        var k = String(e.key || "").toLowerCase();
+        if(Object.prototype.hasOwnProperty.call(combo, k)) combo[k] = false;
+      }, true);
     })();
   </script>
   <div class="seo-hidden" aria-hidden="true">

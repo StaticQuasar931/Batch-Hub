@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function(){
+      var cdn = "https://cdn.jsdelivr.net/gh/StaticQuasar931/Batch-Hub@main/sahur/";
+      var isLocal = location.protocol === "file:" || /^(localhost|127\.0\.0\.1)$/i.test(location.hostname);
+      document.write('<base href="' + (isLocal ? "./" : cdn) + '">');
+    })();
+  </script>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#101217">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="description" content="Play Sahur unblocked on StaticQuasar931. A real Tung Tung Sahur style Unity browser game, cleaned for GitHub and jsDelivr hosting with no iframe wrapper.">
+  <meta property="og:title" content="Sahur Unblocked | StaticQuasar931 Games">
+  <meta property="og:description" content="Play Sahur in the browser. A real Unity WebGL Tung/Sahur game cleaned for StaticQuasar931.">
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/StaticQuasar931/Batch-Hub@main/sahur/preview.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sites.google.com/view/staticquasar931/gm3z/sahur">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sahur Unblocked | StaticQuasar931 Games">
+  <meta name="twitter:description" content="A real Tung/Sahur Unity browser game cleaned for StaticQuasar931.">
+  <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/StaticQuasar931/Batch-Hub@main/sahur/preview.jpg">
+  <link rel="canonical" href="https://sites.google.com/view/staticquasar931/gm3z/sahur">
+  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png">
+  <title>Sahur Unblocked | StaticQuasar931 Games</title>
+  <!-- Google Analytics (Google Sites compatible VSNL 1.21) -->
+<script>
+  (function loadGAForGoogleSites(w, d, id){
+    w.dataLayer = w.dataLayer || [];
+    w.gtag = w.gtag || function(){ w.dataLayer.push(arguments); };
+
+    w.gtag('js', new Date());
+
+    var s = d.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
+
+    var first = d.getElementsByTagName('script')[0];
+    (first && first.parentNode ? first.parentNode : d.head || d.documentElement).insertBefore(s, first || null);
+
+    w.gtag('config', id, {
+      cookie_domain: (w.location && w.location.hostname) ? w.location.hostname : 'auto',
+      cookie_flags: 'SameSite=None;Secure',
+      send_page_view: true
+    });
+  })(window, document, 'G-5JZHSM4RCW');
+</script>
+  <style>
+    :root{--brand:#5ee1ff;--panel:rgba(12,15,22,.86);--shadow:0 16px 38px rgba(0,0,0,.38)}
+    html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#101217;color:#eef6ff;font-family:Arial,Helvetica,sans-serif}
+    body{background:#000}
+    #unity-canvas{position:fixed;left:50%;top:50%;width:min(100vw,1152px);height:auto;aspect-ratio:8/5;transform:translate(-50%,-50%);background:#231f20;outline:0}
+    #loadingPanel{position:fixed;left:50%;top:50%;z-index:9;transform:translate(-50%,-50%);min-width:min(360px,82vw);padding:16px;border:1px solid rgba(94,225,255,.34);border-radius:8px;background:rgba(8,10,14,.78);box-shadow:var(--shadow);text-align:center}
+    #loadingPanel strong{display:block;margin-bottom:10px;font-size:18px}
+    #progressTrack{height:8px;border-radius:999px;background:rgba(255,255,255,.14);overflow:hidden}
+    #progressFill{height:100%;width:2%;background:linear-gradient(90deg,#5ee1ff,#9bffb7)}
+    #staticMenu{position:fixed;left:12px;top:12px;z-index:2147483640;display:flex;gap:10px;align-items:center;user-select:none;padding:10px 14px;border-radius:10px;background:var(--panel);border:1px solid rgba(94,225,255,.35);color:#e8f3ff;box-shadow:var(--shadow);font:700 14px/1.2 Arial,Helvetica,sans-serif}
+    #staticMenu a{color:#5ee1ff;text-decoration:none}
+    #closeStaticMenu{color:#ff6b6b;cursor:pointer;padding:2px 7px;border-radius:6px;background:rgba(255,255,255,.07)}
+    #staticSlideMenu{position:fixed;bottom:24px;right:24px;z-index:2147483640;width:100px;height:100px;pointer-events:none;opacity:0;transform:translateX(140px) scale(.96)}
+    #staticSlideMenu a,#staticSlideMenu img{display:block;width:100%;height:100%}
+    #staticSlideMenu img{object-fit:contain;border:0;background:transparent;transition:opacity .25s ease}
+    .slide-in{animation:slideIn 2s ease forwards}.slide-out{animation:slideOut 2s ease forwards}
+    @keyframes slideIn{from{opacity:0;transform:translateX(140px) scale(.96)}to{opacity:1;transform:translateX(0) scale(1)}}
+    @keyframes slideOut{from{opacity:1;transform:translateX(0) scale(1)}to{opacity:0;transform:translateX(140px) scale(.96)}}
+    .seo-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+    @media(max-width:760px){#unity-canvas{width:100vw;height:100vh;aspect-ratio:auto}#staticMenu{font-size:12px;max-width:calc(100vw - 26px)}#staticSlideMenu{width:84px;height:84px;right:14px;bottom:14px}}
+  </style>
+  <script src="Build/webSahur.loader.js"></script>
+</head>
+<body>
+  <canvas id="unity-canvas" width="960" height="600" tabindex="-1"></canvas>
+  <div id="loadingPanel"><strong>Loading Sahur</strong><div id="progressTrack"><div id="progressFill"></div></div></div>
+  <div id="staticMenu" role="region" aria-label="StaticQuasar931 menu">
+    <a href="https://sites.google.com/view/staticquasar931/gm3z" target="_blank" rel="noopener">More Unblocked Games by Static</a>
+    <span id="closeStaticMenu" title="Hide temporarily">x</span>
+  </div>
+  <div id="staticSlideMenu" aria-live="polite">
+    <a id="staticSlideLink" href="https://sites.google.com/view/staticquasar931/google-form" target="_blank" rel="noopener" aria-label="Open StaticQuasar931 Google Form">
+      <img id="staticSlideImg" src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png" alt="StaticQuasar931 Google Form for game feedback and requests">
+    </a>
+  </div>
+  <script>
+    console.log("StaticQuasar931 Game - https://sites.google.com/view/staticquasar931/gm3z");
+    window.onbeforeunload = function(){ return "Are you sure you want to leave? Your session may be interrupted."; };
+    (function(){
+      var canvas = document.getElementById("unity-canvas");
+      var panel = document.getElementById("loadingPanel");
+      var fill = document.getElementById("progressFill");
+      createUnityInstance(canvas, {
+        arguments: [],
+        dataUrl: "Build/webSahur.data",
+        frameworkUrl: "Build/webSahur.framework.js",
+        codeUrl: "Build/webSahur.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "Sahur",
+        productVersion: "1.0",
+        showBanner: function(message, type){ console[type === "error" ? "error" : "warn"](message); }
+      }, function(progress){
+        if(fill) fill.style.width = Math.max(2, Math.round(progress * 100)) + "%";
+      }).then(function(){
+        if(panel) panel.style.display = "none";
+        canvas.focus();
+      }).catch(function(error){
+        console.error(error);
+        if(panel) panel.innerHTML = "<strong>Game failed to load.</strong><div>Check console and CDN paths.</div>";
+      });
+    })();
+    (function(){
+      var menu = document.getElementById("staticMenu");
+      var btn = document.getElementById("closeStaticMenu");
+      var key = "sq931_staticMenu_hidden_until_sahur";
+      var hidden = false;
+      function visibleMenu(){ return Date.now() >= Number(localStorage.getItem(key) || 0) && !hidden; }
+      function apply(){ if(menu) menu.style.display = visibleMenu() ? "flex" : "none"; }
+      if(btn) btn.addEventListener("click", function(){ localStorage.setItem(key, String(Date.now() + 180000)); apply(); setTimeout(apply, 180000); });
+      apply();
+      setInterval(apply, 30000);
+      var wrap = document.getElementById("staticSlideMenu");
+      var a = document.getElementById("staticSlideLink");
+      var img = document.getElementById("staticSlideImg");
+      var rotation = [
+        {src:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png", alt:"StaticQuasar931 Google Form for game feedback and requests", link:"https://sites.google.com/view/staticquasar931/google-form", label:"Open StaticQuasar931 Google Form"},
+        {src:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Join_Our_DC_StaticQuassar931_lcplrf.png", alt:"Join the StaticQuasar931 Discord", link:"https://discord.gg/DP2hM7RRhR", label:"Join the StaticQuasar931 Discord"},
+        {src:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Follow-us--IG", alt:"Follow StaticQuasar931 on Instagram", link:"https://www.instagram.com/freeschoolgamepage/", label:"Follow StaticQuasar931 on Instagram"}
+      ];
+      rotation.forEach(function(o){ var p = new Image(); p.src = o.src; });
+      var idx = 0;
+      function delay(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
+      function applySlide(state){
+        if(!a || !img) return;
+        a.href = state.link;
+        a.setAttribute("aria-label", state.label);
+        img.alt = state.alt;
+        img.style.opacity = "0";
+        setTimeout(function(){ img.src = state.src; }, 80);
+        img.onload = function(){ img.style.opacity = "1"; };
+      }
+      async function cycle(){
+        for(;;){
+          if(wrap && !hidden){
+            applySlide(rotation[idx]);
+            wrap.style.pointerEvents = "auto";
+            wrap.classList.remove("slide-out");
+            wrap.classList.add("slide-in");
+            await delay(7000);
+            wrap.classList.remove("slide-in");
+            wrap.classList.add("slide-out");
+            await delay(2000);
+            wrap.style.pointerEvents = "none";
+          }
+          await delay(20000);
+          idx = (idx + 1) % rotation.length;
+        }
+      }
+      cycle();
+      var combo = {y:false,u:false,i:false};
+      var sequence = "";
+      function setHidden(value){
+        hidden = value;
+        apply();
+        if(wrap){ wrap.style.display = hidden ? "none" : "block"; wrap.classList.remove("slide-in","slide-out"); }
+      }
+      document.addEventListener("keydown", function(e){
+        var k = String(e.key || "").toLowerCase();
+        if(k === "y" || k === "u" || k === "i"){
+          combo[k] = true;
+          sequence = (sequence + k).slice(-3);
+          if((combo.y && combo.u && combo.i) || sequence === "yui"){
+            setHidden(!hidden);
+            combo = {y:false,u:false,i:false};
+            sequence = "";
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        }
+      }, true);
+      document.addEventListener("keyup", function(e){
+        var k = String(e.key || "").toLowerCase();
+        if(Object.prototype.hasOwnProperty.call(combo, k)) combo[k] = false;
+      }, true);
+    })();
+  </script>
+  <div class="seo-hidden" aria-hidden="true">
+    <h1>Sahur unblocked</h1>
+    <p>Sahur, MMXI Sahur, Tung Tung Sahur, Tung Tung Tung Sahur, tung sahur game, brainrot game, italian brainrot, Ramadan game, Unity browser game, unblocked Unity game, school friendly game, Chromebook browser game, mobile browser game, play at school, working school games, StaticQuasar931, Static Quasar 931, Static 931, StaticQ931. More games are available at https://sites.google.com/view/staticquasar931/gm3z and requests can be sent at https://sites.google.com/view/staticquasar931/google-form.</p>
+  </div>
+</body>
+</html>

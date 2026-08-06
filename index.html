@@ -1,26 +1,28 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <script>
     (function(){
-      var cdn = "https://cdn.jsdelivr.net/gh/StaticQuasar931/Batch%20Hub@main//";
+      var cdn = "https://cdn.jsdelivr.net/gh/StaticQuasar931/Batch-Hub@main/";
       var isLocal = location.protocol === "file:" || /^(localhost|127\.0\.0\.1)$/i.test(location.hostname);
       document.write('<base href="' + (isLocal ? "./" : cdn) + '">');
     })();
   </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#111318">
+  <meta name="theme-color" content="#101217">
   <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="description" content="Batch Hub Arcade collects working unblocked browser games for StaticQuasar931, including brainrot picks that run locally and work through GitHub and jsDelivr.">
-  <meta property="og:title" content="Batch Hub Arcade | StaticQuasar931 Games">
-  <meta property="og:description" content="Working unblocked arcade picks for school, Chromebook, work, and home.">
-  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png">
+  <meta name="description" content="Batch Hub is a StaticQuasar931 arcade launch page for working unblocked browser games, meme games, brainrot games, and school friendly picks hosted through GitHub and jsDelivr.">
+  <meta property="og:title" content="Batch Hub Arcade | StaticQuasar931">
+  <meta property="og:description" content="Working unblocked browser games selected for StaticQuasar931 players. Brainrot picks, clickers, runners, and lightweight arcade pages.">
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/StaticQuasar931/Batch-Hub@main/sahur/preview.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://staticquasar931.github.io/Batch-Hub/">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Batch Hub Arcade | StaticQuasar931 Games">
-  <meta name="twitter:description" content="Working unblocked arcade picks for school, Chromebook, work, and home.">
-  <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png">
-  <link rel="canonical" href="https://sites.google.com/view/staticquasar931/gm3z">
+  <meta name="twitter:title" content="Batch Hub Arcade | StaticQuasar931">
+  <meta name="twitter:description" content="Working unblocked browser games selected for StaticQuasar931 players.">
+  <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/StaticQuasar931/Batch-Hub@main/sahur/preview.jpg">
+  <link rel="canonical" href="https://staticquasar931.github.io/Batch-Hub/">
   <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png">
   <title>Batch Hub Arcade | StaticQuasar931 Games</title>
   <!-- Google Analytics (Google Sites compatible VSNL 1.21) -->
@@ -46,64 +48,100 @@
   })(window, document, 'G-5JZHSM4RCW');
 </script>
   <style>
-    
-    #staticMenu{
-      position:fixed; left:12px; top:12px; z-index:99999; display:flex; gap:10px; align-items:center;
-      padding:10px 14px; border-radius:10px; background:rgba(15,17,23,.92);
-      border:1px solid rgba(94,225,255,.42); color:#eaf4ff; box-shadow:0 10px 30px rgba(0,0,0,.36);
-      font:700 14px/1.2 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; user-select:none;
-    }
-    #staticMenu a{color:#5ee1ff; text-decoration:none}
-    #closeStaticMenu{color:#ff6b6b; cursor:pointer; padding:2px 7px; border-radius:6px; background:rgba(255,255,255,.07)}
-    #staticSlideMenu{position:fixed; bottom:24px; right:24px; z-index:99999; width:100px; height:100px; pointer-events:none; opacity:0; transform:translateX(140px) scale(.96)}
-    #staticSlideMenu a,#staticSlideMenu img{display:block; width:100%; height:100%}
-    #staticSlideMenu img{object-fit:contain; border:0; background:transparent; transition:opacity .25s ease}
+    :root{--bg:#101217;--panel:rgba(255,255,255,.075);--line:rgba(255,255,255,.14);--brand:#5ee1ff;--green:#9bffb7;--text:#eef6ff;--muted:#c9d7e3;--shadow:0 18px 46px rgba(0,0,0,.32)}
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+    body{background:radial-gradient(circle at 12% 4%,rgba(94,225,255,.18),transparent 28%),radial-gradient(circle at 86% 14%,rgba(155,255,183,.14),transparent 26%),linear-gradient(135deg,#101217 0%,#181b22 56%,#11161a 100%)}
+    #staticMenu{position:fixed;left:12px;top:12px;z-index:2147483640;display:flex;gap:10px;align-items:center;user-select:none;padding:10px 14px;border-radius:10px;background:rgba(12,15,22,.88);border:1px solid rgba(94,225,255,.36);color:#e8f3ff;box-shadow:var(--shadow);font:700 14px/1.2 Arial,Helvetica,sans-serif;backdrop-filter:blur(10px)}
+    #staticMenu a{color:var(--brand);text-decoration:none}
+    #closeStaticMenu{color:#ff6b6b;cursor:pointer;padding:2px 7px;border-radius:6px;background:rgba(255,255,255,.07)}
+    #staticSlideMenu{position:fixed;bottom:24px;right:24px;z-index:2147483640;width:100px;height:100px;pointer-events:none;opacity:0;transform:translateX(140px) scale(.96)}
+    #staticSlideMenu a,#staticSlideMenu img{display:block;width:100%;height:100%}
+    #staticSlideMenu img{object-fit:contain;border:0;background:transparent;transition:opacity .25s ease}
     .slide-in{animation:slideIn 2s ease forwards}.slide-out{animation:slideOut 2s ease forwards}
-    @keyframes slideIn{from{opacity:0; transform:translateX(140px) scale(.96)}to{opacity:1; transform:translateX(0) scale(1)}}
-    @keyframes slideOut{from{opacity:1; transform:translateX(0) scale(1)}to{opacity:0; transform:translateX(140px) scale(.96)}}
+    @keyframes slideIn{from{opacity:0;transform:translateX(140px) scale(.96)}to{opacity:1;transform:translateX(0) scale(1)}}
+    @keyframes slideOut{from{opacity:1;transform:translateX(0) scale(1)}to{opacity:0;transform:translateX(140px) scale(.96)}}
+    .wrap{max-width:1180px;margin:0 auto;padding:86px 18px 42px}
+    .top{display:grid;grid-template-columns:1.02fr .98fr;gap:24px;align-items:end;min-height:calc(100vh - 156px)}
+    h1{margin:0;font-size:clamp(42px,8vw,92px);line-height:.9;letter-spacing:0}
+    .lead{max-width:720px;color:var(--muted);font-size:clamp(16px,2.2vw,21px);line-height:1.45;margin:18px 0 0}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .actions a{display:inline-flex;align-items:center;min-height:42px;padding:11px 14px;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.08);color:var(--text);font-weight:800;text-decoration:none}
+    .actions a.primary{border-color:rgba(94,225,255,.55);color:#061014;background:linear-gradient(90deg,var(--brand),var(--green))}
+    .feature{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .shot{position:relative;overflow:hidden;border-radius:8px;border:1px solid var(--line);background:#0c1015;box-shadow:var(--shadow)}
+    .shot img{display:block;width:100%;height:100%;aspect-ratio:16/11;object-fit:cover}
+    .shot.contain img{object-fit:contain;padding:14px;background:#101217}
+    .sectionHead{display:flex;justify-content:space-between;gap:12px;align-items:end;margin:34px 0 14px}
+    .sectionHead h2{font-size:28px;margin:0;letter-spacing:0}
+    .sectionHead p{margin:0;color:var(--muted);line-height:1.4;max-width:560px}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .card{display:flex;flex-direction:column;min-height:360px;text-decoration:none;color:#fff;background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden;box-shadow:var(--shadow);transition:transform .15s ease,border-color .15s ease,background .15s ease}
+    .card:hover{transform:translateY(-3px);border-color:rgba(94,225,255,.62);background:rgba(255,255,255,.1)}
+    .art{height:190px;display:flex;align-items:center;justify-content:center;background:#0c1015;border-bottom:1px solid var(--line)}
+    .art img{width:100%;height:100%;object-fit:cover;display:block}
+    .art.contain img{object-fit:contain;padding:16px}
+    .meta{display:flex;flex-direction:column;gap:9px;padding:16px;flex:1}
+    .meta strong{font-size:21px;letter-spacing:0}
+    .meta small{color:var(--muted);font-size:14px;line-height:1.4}
+    .tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
+    .tags span{font-size:12px;font-weight:800;color:#071016;background:var(--brand);border-radius:999px;padding:5px 8px}
+    .note{margin-top:22px;border-left:3px solid var(--brand);padding:12px 14px;background:rgba(255,255,255,.06);color:#dce8f2;line-height:1.45}
     .seo-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
-    @media(max-width:640px){#staticMenu{font-size:12px; max-width:calc(100vw - 26px)}#staticSlideMenu{width:84px;height:84px;right:14px;bottom:14px}}
-  
-    html,body{margin:0;min-height:100%;background:#111318;color:#eef6ff;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-    body{background:radial-gradient(circle at 20% 10%,rgba(94,225,255,.18),transparent 32%),linear-gradient(135deg,#111318,#1b1d22 55%,#15171b)}
-    main{max-width:1120px;margin:0 auto;padding:84px 18px 48px}
-    h1{margin:0 0 10px;font-size:clamp(34px,6vw,70px);line-height:.96;letter-spacing:0}
-    .lead{max-width:780px;color:#cfe0ee;font-size:clamp(16px,2.4vw,20px);line-height:1.45;margin:0 0 24px}
-    .note{max-width:840px;margin:0 0 28px;padding:14px 16px;border:1px solid rgba(94,225,255,.24);background:rgba(0,0,0,.22);border-radius:8px;color:#e6f3ff}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-    .card{display:grid;grid-template-rows:170px auto;min-height:310px;text-decoration:none;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:8px;overflow:hidden;box-shadow:0 18px 45px rgba(0,0,0,.28)}
-    .card:hover{border-color:rgba(94,225,255,.55);transform:translateY(-2px)}
-    .art{display:flex;align-items:center;justify-content:center;background:#0e1014}
-    .art img{width:100%;height:100%;object-fit:contain;padding:18px;box-sizing:border-box}
-    .meta{display:flex;flex-direction:column;gap:9px;padding:16px}
-    .meta strong{font-size:20px}.meta small{color:#c9d7e3;line-height:1.35}.meta em{color:#5ee1ff;font-style:normal;font-weight:800}
-    .links{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}.links a{color:#5ee1ff;font-weight:800}
+    @media(max-width:880px){.top{grid-template-columns:1fr;min-height:auto}.grid{grid-template-columns:1fr 1fr}.feature{max-width:680px}.wrap{padding-top:82px}}
+    @media(max-width:560px){.grid{grid-template-columns:1fr}.feature{grid-template-columns:1fr 1fr}.actions a{width:100%;justify-content:center}.sectionHead{display:block}.sectionHead p{margin-top:8px}#staticMenu{font-size:12px;max-width:calc(100vw - 26px)}#staticSlideMenu{width:84px;height:84px;right:14px;bottom:14px}}
   </style>
 </head>
 <body>
-  
-  <div id="staticMenu" role="region" aria-label="StaticQuasar menu">
-    <a href="https://sites.google.com/view/staticquasar931/gm3z" target="_blank" rel="noopener">StaticQuasar931 Games</a>
+  <div id="staticMenu" role="region" aria-label="StaticQuasar931 menu">
+    <a href="https://sites.google.com/view/staticquasar931/gm3z" target="_blank" rel="noopener">More Unblocked Games by Static</a>
     <span id="closeStaticMenu" title="Hide temporarily">x</span>
   </div>
   <div id="staticSlideMenu" aria-live="polite">
-    <a id="staticSlideLink" href="https://sites.google.com/view/staticquasar931/google-form" target="_blank" rel="noopener" aria-label="Open Google Form">
-      <img id="staticSlideImg" src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png" alt="StaticQuasar931 Google Form for feedback and requests">
+    <a id="staticSlideLink" href="https://sites.google.com/view/staticquasar931/google-form" target="_blank" rel="noopener" aria-label="Open StaticQuasar931 Google Form">
+      <img id="staticSlideImg" src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png" alt="StaticQuasar931 Google Form for game feedback and requests">
     </a>
   </div>
-  <main>
-    <h1>Batch Hub Arcade</h1>
-    <p class="lead">Working browser games collected for StaticQuasar931. This batch focuses on brainrot picks that are real, local, and formatted for GitHub plus jsDelivr hosting.</p>
-    <p class="note">Some people search for these as brainrot games, meme games, or Tung Tung games. The labels are for finding and organizing the pages, not for locking the games to one type of player.</p>
-    <div class="grid"><a class="card" href="tung-tung-sahur-clicker/">
-      <span class="art"><img src="tung-tung-sahur-clicker/tung.png" alt="Tung Tung Sahur Clicker preview"></span>
-      <span class="meta"><strong>Tung Tung Sahur Clicker</strong><small>A tiny clicker with upgrades, skins, and fast tap gameplay.</small><em>Plain HTML</em></span>
-    </a>
-<a class="card" href="ultimate-brainrot-battle/">
-      <span class="art"><img src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png" alt="Ultimate Brainrot Battle preview"></span>
-      <span class="meta"><strong>Ultimate Brainrot Battle</strong><small>A lightweight Defold brainrot battler with Tung Tung Tung Sahur as a playable pick.</small><em>Defold</em></span>
-    </a></div>
-    <div class="links"><a href="https://sites.google.com/view/staticquasar931/gm3z">StaticQuasar931 Games</a><a href="https://sites.google.com/view/staticquasar931/google-form">Request a game</a></div>
+  <main class="wrap">
+    <section class="top" aria-labelledby="pageTitle">
+      <div>
+        <h1 id="pageTitle">Batch Hub Arcade</h1>
+        <p class="lead">A clean launch page for working browser picks built for StaticQuasar931 players. This batch leans into brainrot searches because your audience already responds to meme, horror, runner, and clicker pages.</p>
+        <div class="actions">
+          <a class="primary" href="https://staticquasar931.github.io/Batch-Hub/sahur/">Play newest pick</a>
+          <a href="https://staticquasar931.github.io/Batch-Hub/">Open GitHub Pages hub</a>
+          <a href="https://sites.google.com/view/staticquasar931/gm3z">Main StaticQuasar931 site</a>
+        </div>
+      </div>
+      <div class="feature" aria-label="Featured game art">
+        <div class="shot"><img src="sahur/preview.jpg" alt="Sahur preview"></div>
+        <div class="shot contain"><img src="tung-tung-sahur-clicker/tung.png" alt="Tung Tung Sahur Clicker preview"></div>
+        <div class="shot contain"><img src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png" alt="StaticQuasar931 arcade icon"></div>
+        <div class="shot"><img src="tung-tung-sahur-clicker/background.png" alt="Tung Tung Sahur Clicker background art"></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="gamesTitle">
+      <div class="sectionHead">
+        <h2 id="gamesTitle">Playable Pages</h2>
+        <p>Each card opens the real GitHub Pages game page. The pages themselves use jsDelivr asset paths when hosted, with local fallback for testing.</p>
+      </div>
+      <div class="grid">
+        <a class="card" href="https://staticquasar931.github.io/Batch-Hub/sahur/">
+          <span class="art"><img src="sahur/preview.jpg" alt="Sahur preview"></span>
+          <span class="meta"><strong>Sahur</strong><small>Real Unity WebGL Tung/Sahur pick from itch. Clean direct canvas wrapper, mobile-friendly layout, no iframe wrapper.</small><span class="tags"><span>Unity</span><span>Brainrot</span><span>Local</span></span></span>
+        </a>
+        <a class="card" href="https://staticquasar931.github.io/Batch-Hub/tung-tung-sahur-clicker/">
+          <span class="art contain"><img src="tung-tung-sahur-clicker/tung.png" alt="Tung Tung Sahur Clicker preview"></span>
+          <span class="meta"><strong>Tung Tung Sahur Clicker</strong><small>Tiny local clicker with upgrades, skins, touch support, audio unlock after interaction, and safe filenames.</small><span class="tags"><span>Clicker</span><span>Mobile</span><span>HTML</span></span></span>
+        </a>
+        <a class="card" href="https://staticquasar931.github.io/Batch-Hub/ultimate-brainrot-battle/">
+          <span class="art contain"><img src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png" alt="Ultimate Brainrot Battle preview"></span>
+          <span class="meta"><strong>Ultimate Brainrot Battle</strong><small>Defold brainrot battler. Fixed CDN slug so the engine scripts load from the real repo path.</small><span class="tags"><span>Battle</span><span>Brainrot</span><span>Defold</span></span></span>
+        </a>
+      </div>
+      <p class="note">Brainrot is used as a search and navigation label because players are actively looking for those pages. The collection is still for anyone who wants quick browser arcade games.</p>
+    </section>
   </main>
   <script>
     console.log("StaticQuasar931 Game - https://sites.google.com/view/staticquasar931/gm3z");
@@ -111,73 +149,81 @@
     (function(){
       var menu = document.getElementById("staticMenu");
       var btn = document.getElementById("closeStaticMenu");
-      var key = "sq931_staticMenu_hidden_until";
-      function show(){ if(menu) menu.style.display = "flex"; }
-      function hideFor3m(){
-        if(!menu) return;
-        menu.style.display = "none";
-        var until = Date.now() + 180000;
-        localStorage.setItem(key, String(until));
-        setTimeout(show, 180000);
-      }
-      var until = parseInt(localStorage.getItem(key) || "0", 10);
-      if(until && Date.now() < until){ if(menu) menu.style.display = "none"; setTimeout(show, until - Date.now()); } else { show(); }
-      if(btn) btn.onclick = hideFor3m;
-    })();
-    (function(){
+      var key = "sq931_staticMenu_hidden_until_batch-hub";
+      var hidden = false;
+      function visibleMenu(){ return Date.now() >= Number(localStorage.getItem(key) || 0) && !hidden; }
+      function apply(){ if(menu) menu.style.display = visibleMenu() ? "flex" : "none"; }
+      if(btn) btn.addEventListener("click", function(){ localStorage.setItem(key, String(Date.now() + 180000)); apply(); setTimeout(apply, 180000); });
+      apply();
+      setInterval(apply, 30000);
       var wrap = document.getElementById("staticSlideMenu");
       var a = document.getElementById("staticSlideLink");
       var img = document.getElementById("staticSlideImg");
       var rotation = [
-        {src:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png", alt:"StaticQuasar931 Google Form for feedback and requests", link:"https://sites.google.com/view/staticquasar931/google-form"},
-        {src:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Join_Our_DC_StaticQuassar931_lcplrf.png", alt:"Join the StaticQuasar931 Discord", link:"https://discord.gg/DP2hM7RRhR"},
-        {src:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Follow-us--IG", alt:"StaticQuasar931 Instagram", link:"https://www.instagram.com/freeschoolgamepage/"}
+        {src:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png", alt:"StaticQuasar931 Google Form for game feedback and requests", link:"https://sites.google.com/view/staticquasar931/google-form", label:"Open StaticQuasar931 Google Form"},
+        {src:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Join_Our_DC_StaticQuassar931_lcplrf.png", alt:"Join the StaticQuasar931 Discord", link:"https://discord.gg/DP2hM7RRhR", label:"Join the StaticQuasar931 Discord"},
+        {src:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Follow-us--IG", alt:"Follow StaticQuasar931 on Instagram", link:"https://www.instagram.com/freeschoolgamepage/", label:"Follow StaticQuasar931 on Instagram"}
       ];
       rotation.forEach(function(o){ var p = new Image(); p.src = o.src; });
       var idx = 0;
       function delay(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
-      function apply(state){
+      function applySlide(state){
+        if(!a || !img) return;
         a.href = state.link;
+        a.setAttribute("aria-label", state.label);
         img.alt = state.alt;
         img.style.opacity = "0";
         setTimeout(function(){ img.src = state.src; }, 80);
         img.onload = function(){ img.style.opacity = "1"; };
       }
-      (async function cycle(){
+      async function cycle(){
         for(;;){
-          apply(rotation[idx]);
-          wrap.style.pointerEvents = "auto";
-          wrap.classList.remove("slide-out");
-          wrap.classList.add("slide-in");
-          await delay(7000);
-          wrap.classList.remove("slide-in");
-          wrap.classList.add("slide-out");
-          await delay(2000);
-          wrap.style.pointerEvents = "none";
+          if(wrap && !hidden){
+            applySlide(rotation[idx]);
+            wrap.style.pointerEvents = "auto";
+            wrap.classList.remove("slide-out");
+            wrap.classList.add("slide-in");
+            await delay(7000);
+            wrap.classList.remove("slide-in");
+            wrap.classList.add("slide-out");
+            await delay(2000);
+            wrap.style.pointerEvents = "none";
+          }
           await delay(20000);
           idx = (idx + 1) % rotation.length;
         }
-      })();
-    })();
-    (function(){
-      var seq = [];
-      window.addEventListener("keydown", function(e){
-        seq.push(String(e.key || "").toLowerCase());
-        if(seq.length > 3) seq.shift();
-        if(seq.join("") === "yui"){
-          ["staticMenu","staticSlideMenu"].forEach(function(id){
-            var el = document.getElementById(id);
-            if(!el) return;
-            var hidden = el.style.display === "none" || getComputedStyle(el).display === "none";
-            el.style.display = hidden ? (id === "staticMenu" ? "flex" : "block") : "none";
-          });
+      }
+      cycle();
+      var combo = {y:false,u:false,i:false};
+      var sequence = "";
+      function setHidden(value){
+        hidden = value;
+        apply();
+        if(wrap){ wrap.style.display = hidden ? "none" : "block"; wrap.classList.remove("slide-in","slide-out"); }
+      }
+      document.addEventListener("keydown", function(e){
+        var k = String(e.key || "").toLowerCase();
+        if(k === "y" || k === "u" || k === "i"){
+          combo[k] = true;
+          sequence = (sequence + k).slice(-3);
+          if((combo.y && combo.u && combo.i) || sequence === "yui"){
+            setHidden(!hidden);
+            combo = {y:false,u:false,i:false};
+            sequence = "";
+            e.preventDefault();
+            e.stopPropagation();
+          }
         }
-      });
+      }, true);
+      document.addEventListener("keyup", function(e){
+        var k = String(e.key || "").toLowerCase();
+        if(Object.prototype.hasOwnProperty.call(combo, k)) combo[k] = false;
+      }, true);
     })();
   </script>
   <div class="seo-hidden" aria-hidden="true">
     <h1>Batch Hub Arcade unblocked</h1>
-    <p>Batch Hub Arcade, batch hub arcade, tung tung tung sahur, tung tung sahur, tung sahur, brainrot game, brainrot unblocked, italian brainrot, school friendly game, working at school, play at school, Chromebook browser game, unblocked games, staticquasar931, static, staticquasar, static 931, 931, staticq, staticq931. More games: https://sites.google.com/view/staticquasar931/gm3z Feedback: https://sites.google.com/view/staticquasar931/google-form Instagram: https://www.instagram.com/freeschoolgamepage/</p>
+    <p>Batch Hub Arcade, StaticQuasar931 Batch Hub, unblocked games, brainrot games, Tung Tung Sahur, Tung Tung Tung Sahur, Sahur, Tung Tung Sahur Clicker, Ultimate Brainrot Battle, meme games, runner games, clicker games, Chromebook games, school games, working at school, browser games, StaticQuasar931, Static Quasar 931, Static 931, StaticQ931. More games: https://sites.google.com/view/staticquasar931/gm3z Requests: https://sites.google.com/view/staticquasar931/google-form Discord: https://discord.gg/DP2hM7RRhR Instagram: https://www.instagram.com/freeschoolgamepage/</p>
   </div>
 </body>
 </html>
