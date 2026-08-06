@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function(){
+      var cdn = "https://cdn.jsdelivr.net/gh/StaticQuasar931/Batch%20Hub@main//";
+      var isLocal = location.protocol === "file:" || /^(localhost|127\.0\.0\.1)$/i.test(location.hostname);
+      document.write('<base href="' + (isLocal ? "./" : cdn) + '">');
+    })();
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#111318">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="description" content="Batch Hub Arcade collects working unblocked browser games for StaticQuasar931, including brainrot picks that run locally and work through GitHub and jsDelivr.">
+  <meta property="og:title" content="Batch Hub Arcade | StaticQuasar931 Games">
+  <meta property="og:description" content="Working unblocked arcade picks for school, Chromebook, work, and home.">
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Batch Hub Arcade | StaticQuasar931 Games">
+  <meta name="twitter:description" content="Working unblocked arcade picks for school, Chromebook, work, and home.">
+  <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png">
+  <link rel="canonical" href="https://sites.google.com/view/staticquasar931/gm3z">
+  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png">
+  <title>Batch Hub Arcade | StaticQuasar931 Games</title>
+  <!-- Google Analytics (Google Sites compatible VSNL 1.21) -->
+<script>
+  (function loadGAForGoogleSites(w, d, id){
+    w.dataLayer = w.dataLayer || [];
+    w.gtag = w.gtag || function(){ w.dataLayer.push(arguments); };
+
+    w.gtag('js', new Date());
+
+    var s = d.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
+
+    var first = d.getElementsByTagName('script')[0];
+    (first && first.parentNode ? first.parentNode : d.head || d.documentElement).insertBefore(s, first || null);
+
+    w.gtag('config', id, {
+      cookie_domain: (w.location && w.location.hostname) ? w.location.hostname : 'auto',
+      cookie_flags: 'SameSite=None;Secure',
+      send_page_view: true
+    });
+  })(window, document, 'G-5JZHSM4RCW');
+</script>
+  <style>
+    
+    #staticMenu{
+      position:fixed; left:12px; top:12px; z-index:99999; display:flex; gap:10px; align-items:center;
+      padding:10px 14px; border-radius:10px; background:rgba(15,17,23,.92);
+      border:1px solid rgba(94,225,255,.42); color:#eaf4ff; box-shadow:0 10px 30px rgba(0,0,0,.36);
+      font:700 14px/1.2 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; user-select:none;
+    }
+    #staticMenu a{color:#5ee1ff; text-decoration:none}
+    #closeStaticMenu{color:#ff6b6b; cursor:pointer; padding:2px 7px; border-radius:6px; background:rgba(255,255,255,.07)}
+    #staticSlideMenu{position:fixed; bottom:24px; right:24px; z-index:99999; width:100px; height:100px; pointer-events:none; opacity:0; transform:translateX(140px) scale(.96)}
+    #staticSlideMenu a,#staticSlideMenu img{display:block; width:100%; height:100%}
+    #staticSlideMenu img{object-fit:contain; border:0; background:transparent; transition:opacity .25s ease}
+    .slide-in{animation:slideIn 2s ease forwards}.slide-out{animation:slideOut 2s ease forwards}
+    @keyframes slideIn{from{opacity:0; transform:translateX(140px) scale(.96)}to{opacity:1; transform:translateX(0) scale(1)}}
+    @keyframes slideOut{from{opacity:1; transform:translateX(0) scale(1)}to{opacity:0; transform:translateX(140px) scale(.96)}}
+    .seo-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+    @media(max-width:640px){#staticMenu{font-size:12px; max-width:calc(100vw - 26px)}#staticSlideMenu{width:84px;height:84px;right:14px;bottom:14px}}
+  
+    html,body{margin:0;min-height:100%;background:#111318;color:#eef6ff;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    body{background:radial-gradient(circle at 20% 10%,rgba(94,225,255,.18),transparent 32%),linear-gradient(135deg,#111318,#1b1d22 55%,#15171b)}
+    main{max-width:1120px;margin:0 auto;padding:84px 18px 48px}
+    h1{margin:0 0 10px;font-size:clamp(34px,6vw,70px);line-height:.96;letter-spacing:0}
+    .lead{max-width:780px;color:#cfe0ee;font-size:clamp(16px,2.4vw,20px);line-height:1.45;margin:0 0 24px}
+    .note{max-width:840px;margin:0 0 28px;padding:14px 16px;border:1px solid rgba(94,225,255,.24);background:rgba(0,0,0,.22);border-radius:8px;color:#e6f3ff}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+    .card{display:grid;grid-template-rows:170px auto;min-height:310px;text-decoration:none;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:8px;overflow:hidden;box-shadow:0 18px 45px rgba(0,0,0,.28)}
+    .card:hover{border-color:rgba(94,225,255,.55);transform:translateY(-2px)}
+    .art{display:flex;align-items:center;justify-content:center;background:#0e1014}
+    .art img{width:100%;height:100%;object-fit:contain;padding:18px;box-sizing:border-box}
+    .meta{display:flex;flex-direction:column;gap:9px;padding:16px}
+    .meta strong{font-size:20px}.meta small{color:#c9d7e3;line-height:1.35}.meta em{color:#5ee1ff;font-style:normal;font-weight:800}
+    .links{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}.links a{color:#5ee1ff;font-weight:800}
+  </style>
+</head>
+<body>
+  
+  <div id="staticMenu" role="region" aria-label="StaticQuasar menu">
+    <a href="https://sites.google.com/view/staticquasar931/gm3z" target="_blank" rel="noopener">StaticQuasar931 Games</a>
+    <span id="closeStaticMenu" title="Hide temporarily">x</span>
+  </div>
+  <div id="staticSlideMenu" aria-live="polite">
+    <a id="staticSlideLink" href="https://sites.google.com/view/staticquasar931/google-form" target="_blank" rel="noopener" aria-label="Open Google Form">
+      <img id="staticSlideImg" src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png" alt="StaticQuasar931 Google Form for feedback and requests">
+    </a>
+  </div>
+  <main>
+    <h1>Batch Hub Arcade</h1>
+    <p class="lead">Working browser games collected for StaticQuasar931. This batch focuses on brainrot picks that are real, local, and formatted for GitHub plus jsDelivr hosting.</p>
+    <p class="note">Some people search for these as brainrot games, meme games, or Tung Tung games. The labels are for finding and organizing the pages, not for locking the games to one type of player.</p>
+    <div class="grid"><a class="card" href="tung-tung-sahur-clicker/">
+      <span class="art"><img src="tung-tung-sahur-clicker/tung.png" alt="Tung Tung Sahur Clicker preview"></span>
+      <span class="meta"><strong>Tung Tung Sahur Clicker</strong><small>A tiny clicker with upgrades, skins, and fast tap gameplay.</small><em>Plain HTML</em></span>
+    </a>
+<a class="card" href="ultimate-brainrot-battle/">
+      <span class="art"><img src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png" alt="Ultimate Brainrot Battle preview"></span>
+      <span class="meta"><strong>Ultimate Brainrot Battle</strong><small>A lightweight Defold brainrot battler with Tung Tung Tung Sahur as a playable pick.</small><em>Defold</em></span>
+    </a></div>
+    <div class="links"><a href="https://sites.google.com/view/staticquasar931/gm3z">StaticQuasar931 Games</a><a href="https://sites.google.com/view/staticquasar931/google-form">Request a game</a></div>
+  </main>
+  <script>
+    console.log("StaticQuasar931 Game - https://sites.google.com/view/staticquasar931/gm3z");
+    window.onbeforeunload = function(){ return "Are you sure you want to leave? Your session may be interrupted."; };
+    (function(){
+      var menu = document.getElementById("staticMenu");
+      var btn = document.getElementById("closeStaticMenu");
+      var key = "sq931_staticMenu_hidden_until";
+      function show(){ if(menu) menu.style.display = "flex"; }
+      function hideFor3m(){
+        if(!menu) return;
+        menu.style.display = "none";
+        var until = Date.now() + 180000;
+        localStorage.setItem(key, String(until));
+        setTimeout(show, 180000);
+      }
+      var until = parseInt(localStorage.getItem(key) || "0", 10);
+      if(until && Date.now() < until){ if(menu) menu.style.display = "none"; setTimeout(show, until - Date.now()); } else { show(); }
+      if(btn) btn.onclick = hideFor3m;
+    })();
+    (function(){
+      var wrap = document.getElementById("staticSlideMenu");
+      var a = document.getElementById("staticSlideLink");
+      var img = document.getElementById("staticSlideImg");
+      var rotation = [
+        {src:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png", alt:"StaticQuasar931 Google Form for feedback and requests", link:"https://sites.google.com/view/staticquasar931/google-form"},
+        {src:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Join_Our_DC_StaticQuassar931_lcplrf.png", alt:"Join the StaticQuasar931 Discord", link:"https://discord.gg/DP2hM7RRhR"},
+        {src:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Follow-us--IG", alt:"StaticQuasar931 Instagram", link:"https://www.instagram.com/freeschoolgamepage/"}
+      ];
+      rotation.forEach(function(o){ var p = new Image(); p.src = o.src; });
+      var idx = 0;
+      function delay(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
+      function apply(state){
+        a.href = state.link;
+        img.alt = state.alt;
+        img.style.opacity = "0";
+        setTimeout(function(){ img.src = state.src; }, 80);
+        img.onload = function(){ img.style.opacity = "1"; };
+      }
+      (async function cycle(){
+        for(;;){
+          apply(rotation[idx]);
+          wrap.style.pointerEvents = "auto";
+          wrap.classList.remove("slide-out");
+          wrap.classList.add("slide-in");
+          await delay(7000);
+          wrap.classList.remove("slide-in");
+          wrap.classList.add("slide-out");
+          await delay(2000);
+          wrap.style.pointerEvents = "none";
+          await delay(20000);
+          idx = (idx + 1) % rotation.length;
+        }
+      })();
+    })();
+    (function(){
+      var seq = [];
+      window.addEventListener("keydown", function(e){
+        seq.push(String(e.key || "").toLowerCase());
+        if(seq.length > 3) seq.shift();
+        if(seq.join("") === "yui"){
+          ["staticMenu","staticSlideMenu"].forEach(function(id){
+            var el = document.getElementById(id);
+            if(!el) return;
+            var hidden = el.style.display === "none" || getComputedStyle(el).display === "none";
+            el.style.display = hidden ? (id === "staticMenu" ? "flex" : "block") : "none";
+          });
+        }
+      });
+    })();
+  </script>
+  <div class="seo-hidden" aria-hidden="true">
+    <h1>Batch Hub Arcade unblocked</h1>
+    <p>Batch Hub Arcade, batch hub arcade, tung tung tung sahur, tung tung sahur, tung sahur, brainrot game, brainrot unblocked, italian brainrot, school friendly game, working at school, play at school, Chromebook browser game, unblocked games, staticquasar931, static, staticquasar, static 931, 931, staticq, staticq931. More games: https://sites.google.com/view/staticquasar931/gm3z Feedback: https://sites.google.com/view/staticquasar931/google-form Instagram: https://www.instagram.com/freeschoolgamepage/</p>
+  </div>
+</body>
+</html>
