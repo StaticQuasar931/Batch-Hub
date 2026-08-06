@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <title>Tung Sahur Horror Player Bridge | StaticQuasar931 Games</title>
+
+  <meta
+    name="description"
+    content="Open the Tung Sahur Horror about:blank player."
+  >
+
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#100604">
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png"
+  >
+
+  <!-- Google Analytics (Google Sites compatible VSNL 1.21) -->
+  <script>
+    (function loadGAForGoogleSites(w, d, id){
+      w.dataLayer = w.dataLayer || [];
+      w.gtag = w.gtag || function(){ w.dataLayer.push(arguments); };
+
+      w.gtag('js', new Date());
+
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
+
+      var first = d.getElementsByTagName('script')[0];
+      (first && first.parentNode ? first.parentNode : d.head || d.documentElement).insertBefore(s, first || null);
+
+      w.gtag('config', id, {
+        cookie_domain: (w.location && w.location.hostname) ? w.location.hostname : 'auto',
+        cookie_flags: 'SameSite=None;Secure',
+        send_page_view: true,
+        page_title: 'Tung Sahur Horror Player Bridge'
+      });
+    })(window, document, 'G-5JZHSM4RCW');
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      overflow: hidden;
+      color: #fff8f3;
+      font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+      background:
+        radial-gradient(
+          circle at 16% 14%,
+          rgba(217, 66, 48, 0.22),
+          transparent 28%
+        ),
+        linear-gradient(145deg, #050201, #150705, #290d09);
+    }
+
+    .card {
+      width: min(440px, 100%);
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 22px;
+      background: rgba(18, 8, 6, 0.96);
+      box-shadow:
+        0 28px 80px rgba(0, 0, 0, 0.62),
+        0 0 42px rgba(217, 66, 48, 0.14);
+      text-align: center;
+    }
+
+    .thumb {
+      width: 112px;
+      height: 112px;
+      object-fit: cover;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 20px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.46);
+    }
+
+    h1 {
+      margin: 17px 0 7px;
+      font-size: clamp(28px, 7vw, 42px);
+      line-height: 1;
+    }
+
+    p {
+      margin: 0;
+      color: #ceb9b0;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    button {
+      width: 100%;
+      min-height: 56px;
+      margin-top: 20px;
+      padding: 14px 20px;
+      border: 0;
+      border-radius: 16px;
+      color: #1c0704;
+      background: linear-gradient(95deg, #d94230, #ff9963);
+      box-shadow:
+        0 17px 40px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(217, 66, 48, 0.24);
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 1000;
+    }
+
+    button:hover {
+      filter: brightness(1.07);
+    }
+
+    #status {
+      min-height: 20px;
+      margin-top: 9px;
+      color: #efd3c8;
+      font-size: 12px;
+      font-weight: 750;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="card">
+    <img
+      class="thumb"
+      src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/tungsahurhorror1.png"
+      alt="Tung Sahur Horror"
+    >
+
+    <h1>Tung Sahur Horror</h1>
+
+    <p>
+      Press Play to open the unrestricted about:blank player.
+    </p>
+
+    <button id="playButton" type="button">
+      Play in About:Blank
+    </button>
+
+    <p id="status" role="status"></p>
+  </main>
+
+  <script>
+    "use strict";
+
+    function buildGameHTML() {
+      var scriptOpen = "<scr" + "ipt>";
+      var scriptClose = "</scr" + "ipt>";
+
+      var analyticsCode = [
+        "(function loadGAForGoogleSites(w,d,id){",
+        "w.dataLayer=w.dataLayer||[];",
+        "w.gtag=w.gtag||function(){w.dataLayer.push(arguments);};",
+        "w.gtag('js',new Date());",
+        "var s=d.createElement('script');",
+        "s.async=true;",
+        "s.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(id);",
+        "var first=d.getElementsByTagName('script')[0];",
+        "(first&&first.parentNode?first.parentNode:d.head||d.documentElement).insertBefore(s,first||null);",
+        "w.gtag('config',id,{",
+        "cookie_domain:(w.location&&w.location.hostname)?w.location.hostname:'auto',",
+        "cookie_flags:'SameSite=None;Secure',",
+        "send_page_view:true,",
+        "page_title:'Tung Sahur Horror About:Blank Player'",
+        "});",
+        "})(window,document,'G-5JZHSM4RCW');"
+      ].join("");
+
+      var compatibilityCode = [
+        "function firebaseLogEvent(event_name){",
+        "console.log('firebaseLogEvent (stubbed):',event_name);",
+        "}",
+
+        "function firebaseLogEventParameter(event_name,event_param){",
+        "console.log('firebaseLogEventParameter (stubbed):',event_name,event_param);",
+        "}",
+
+        "function firebaseSetUserProperties(props){",
+        "console.log('firebaseSetUserProperties (stubbed):',props);",
+        "}",
+
+        "window.cloudSaves=window.cloudSaves||{",
+        "save:function(){return Promise.resolve(false);},",
+        "load:function(){return Promise.resolve(null);},",
+        "delete:function(){return Promise.resolve(false);},",
+        "hasSave:function(){return Promise.resolve(false);}",
+        "};",
+
+        "window.environmentData=window.environmentData||{};",
+        "window.GetPayments=window.GetPayments||function(){return '[]';};",
+        "window.InitGame=window.InitGame||function(){return true;};",
+        "window.GameReady=window.GameReady||function(){return true;};"
+      ].join("");
+
+      var mergerConfigCode = [
+        "window.fileMergerConfig={",
+        "files:[",
+        "{name:'tung-sahur-horror-v25051505.data.unityweb',parts:2}",
+        "],",
+        "basePath:'Build/',",
+        "debug:true",
+        "};"
+      ].join("");
+
+      var bootCode = [
+        "var canvas=document.getElementById('unity-canvas');",
+        "var container=document.getElementById('gameContainer');",
+        "var loadingBar=document.getElementById('loadingBar');",
+        "var pct=document.getElementById('pct');",
+
+        "var buildUrl='Build';",
+
+        "var config={",
+        "dataUrl:buildUrl+'/tung-sahur-horror-v25051505.data.unityweb',",
+        "frameworkUrl:buildUrl+'/tung-sahur-horror-v25051505.framework.js.unityweb',",
+        "codeUrl:buildUrl+'/tung-sahur-horror-v25051505.wasm.unityweb',",
+        "streamingAssetsUrl:'StreamingAssets',",
+        "companyName:'azgames.io',",
+        "productName:'Tung Sahur Horror',",
+        "productVersion:'25051505',",
+        "pubId:'',",
+        "gameId:'tung-sahur-horror',",
+        "enableMoreGame:'yes',",
+        "enablePromotion:true,",
+        "eventLog:false",
+        "};",
+
+        "window.config=config;",
+
+        "function onResize(){",
+        "var w=window.innerWidth;",
+        "var h=window.innerHeight;",
+        "var r=540/960;",
+        "if(w*r>h)w=Math.ceil(h/r);",
+        "h=Math.floor(w*r);",
+        "container.style.width=canvas.style.width=w+'px';",
+        "container.style.height=canvas.style.height=h+'px';",
+        "container.style.top=Math.floor((window.innerHeight-h)/2)+'px';",
+        "container.style.left=Math.floor((window.innerWidth-w)/2)+'px';",
+        "}",
+
+        "onResize();",
+        "window.addEventListener('resize',onResize);",
+
+        "canvas.addEventListener('pointerdown',function(){",
+        "window.focus();",
+        "canvas.focus();",
+
+        "var audioContext=window.__unityAudioContext;",
+        "if(audioContext&&audioContext.state==='suspended'){",
+        "audioContext.resume().catch(function(){});",
+        "}",
+        "});",
+
+        "var script=document.createElement('script');",
+        "script.src=buildUrl+'/tung-sahur-horror-v25051505.loader.js';",
+
+        "script.onload=function(){",
+        "createUnityInstance(canvas,config,function(progress){",
+        "pct.innerText=Math.round(progress*100)+'%';",
+        "}).then(function(instance){",
+        "window.unityInstance=instance;",
+
+        "setTimeout(function(){",
+        "loadingBar.style.display='none';",
+        "container.style.display='block';",
+        "onResize();",
+        "window.focus();",
+        "canvas.focus();",
+        "},2000);",
+
+        "}).catch(function(message){",
+        "console.error(message);",
+        "document.getElementById('loadingMessage').textContent=String(message);",
+        "});",
+        "};",
+
+        "script.onerror=function(){",
+        "document.getElementById('loadingMessage').textContent='Unity loader failed to load.';",
+        "};",
+
+        "document.body.appendChild(script);"
+      ].join("");
+
+      return [
+        "<!DOCTYPE html>",
+        "<html lang=\"en-us\">",
+        "<head>",
+        "<meta charset=\"utf-8\">",
+        "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover\">",
+        "<meta name=\"theme-color\" content=\"#000000\">",
+        "<meta name=\"description\" content=\"Tung Sahur Horror About:Blank Player by StaticQuasar931 Games.\">",
+        "<base href=\"https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/tungtung/\">",
+        "<title>Tung Sahur Horror About:Blank Player | StaticQuasar931 Games</title>",
+        "<link rel=\"icon\" type=\"image/png\" href=\"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png\">",
+
+        "<style>",
+        "html,body{background:#000;width:100%;height:100%;overflow:hidden;padding:0;margin:0}",
+        "#gameContainer{position:absolute}",
+        "#gameContainer canvas{position:absolute;outline:0;background:#000}",
+        "#loadingBar{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:18px;color:#fff;background:radial-gradient(circle at 16% 14%,rgba(217,66,48,.22),transparent 28%),linear-gradient(145deg,#050201,#150705,#290d09);font-family:Arial,sans-serif}",
+        ".loadingCard{width:min(460px,100%);padding:18px;border:1px solid rgba(255,255,255,.12);border-radius:21px;background:rgba(18,8,6,.96);box-shadow:0 28px 80px rgba(0,0,0,.62);text-align:center}",
+        ".loadingImage{width:100%;max-height:42vh;display:block;object-fit:contain;border-radius:15px;background:#070302}",
+        ".loadingTitle{margin:15px 0 6px;font-size:clamp(27px,6vw,40px);line-height:1;font-weight:1000}",
+        ".loadingText{margin:0;color:#ceb9b0;font-size:13px;line-height:1.45}",
+        "#pct{display:block;margin-top:13px;font-size:18px;font-weight:900}",
+        "#loadingMessage{min-height:20px;margin:6px 0 0;color:#e7d2c9;font-size:12px}",
+        "</style>",
+
+        scriptOpen,
+        analyticsCode,
+        scriptClose,
+
+        scriptOpen,
+        compatibilityCode,
+        scriptClose,
+
+        scriptOpen,
+        mergerConfigCode,
+        scriptClose,
+
+        "</head>",
+
+        "<body>",
+
+        /*
+         * Keep the exact original SDK position.
+         * The config error from this SDK is non-fatal in the working source.
+         */
+        "<script id=\"gmsoft-jssdk\" src=\"gmsoftsdk_v5.js\"><\/script>",
+
+        "<div id=\"gameContainer\" style=\"display:none\">",
+        "<canvas id=\"unity-canvas\" tabindex=\"0\"></canvas>",
+        "</div>",
+
+        "<div id=\"loadingBar\">",
+        "<div class=\"loadingCard\">",
+        "<img class=\"loadingImage\" src=\"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/tungsahurhorrortitle.png\" alt=\"Tung Sahur Horror title screen\">",
+        "<h1 class=\"loadingTitle\">Tung Sahur Horror</h1>",
+        "<p class=\"loadingText\">Preparing game files...</p>",
+        "<span id=\"pct\">0%</span>",
+        "<p id=\"loadingMessage\"></p>",
+        "</div>",
+        "</div>",
+
+        "<script src=\"https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/merge.js\"><\/script>",
+
+        scriptOpen,
+        bootCode,
+        scriptClose,
+
+        "</body>",
+        "</html>"
+      ].join("");
+    }
+
+    document
+      .getElementById("playButton")
+      .addEventListener("click", function () {
+        var status = document.getElementById("status");
+        var popup = window.open("about:blank", "_blank");
+
+        if (!popup) {
+          status.textContent =
+            "Popup blocked. Allow popups and try again.";
+          return;
+        }
+
+        try {
+          popup.document.open();
+          popup.document.write(buildGameHTML());
+          popup.document.close();
+          popup.focus();
+
+          status.textContent = "About:blank player opened.";
+        } catch (error) {
+          console.error(error);
+          status.textContent = "The player could not be opened.";
+
+          try {
+            popup.close();
+          } catch (closeError) {
+            console.warn(closeError);
+          }
+        }
+      });
+  </script>
+</body>
+</html>
