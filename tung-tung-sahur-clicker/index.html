@@ -135,7 +135,9 @@
   <img src="tung2.png" id="tung2" alt="Tung Tung hatino skin">
   <img src="tung.png" id="tung" alt="Tung Tung Sahur">
   <script>
-    var music = new Audio("yo.wav");
+    var music = new Audio();
+    var musicReady = joinAudio(["yo.wav.part0","yo.wav.part1","yo.wav.part2","yo.wav.part3","yo.wav.part4","yo.wav.part5"], "audio/wav").then(function(url){ music.src = url; return url; });
+    function joinAudio(paths, type){ return Promise.all(paths.map(function(p){ return fetch(p).then(function(r){ if(!r.ok) throw new Error(p + " " + r.status); return r.arrayBuffer(); }); })).then(function(chunks){ return URL.createObjectURL(new Blob(chunks, {type:type})); }); }
     var clickSound = new Audio("yoclic.wav");
     music.loop = true;
     music.volume = 0.35;
@@ -144,7 +146,7 @@
     function startMusic(){
       if(musicStarted) return;
       musicStarted = true;
-      music.play().catch(function(){ console.log("Audio will start after another user action."); });
+      musicReady.then(function(){ return music.play(); }).catch(function(){ console.log("Audio will start after another user action."); });
     }
     var adp = 0, add = 1, point = 0, autoIncrement = null;
     var ids = ["upgrade1","upgrade2","upgrade3","upgrade4","upgrade5","upgrade6","upgrade7","upgrade8","upgrade9","upgrade10","skin","skin2","skin3","monH2","monH22","monH222","tung","tung2","tung3"];

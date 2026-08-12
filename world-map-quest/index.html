@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function(){
+      var cdn = "https://cdn.jsdelivr.net/gh/StaticQuasar931/Batch-Hub@main/world-map-quest/";
+      var isLocal = location.protocol === "file:" || /^(localhost|127\.0\.0\.1)$/i.test(location.hostname);
+      document.write('<base href="' + (isLocal ? "./" : cdn) + '">');
+    })();
+  </script>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#101217">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="description" content="A safe geography quiz with country, capital, and landmark clues.">
+  <meta property="og:title" content="World Map Quest | StaticQuasar931">
+  <meta property="og:description" content="A safe geography quiz with country, capital, and landmark clues.">
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/StaticQuasar931/Batch-Hub@main/world-map-quest/preview.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sites.google.com/view/staticquasar931/gm3z/world-map-quest">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="World Map Quest | StaticQuasar931">
+  <meta name="twitter:description" content="A safe geography quiz with country, capital, and landmark clues.">
+  <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/StaticQuasar931/Batch-Hub@main/world-map-quest/preview.svg">
+  <link rel="canonical" href="https://sites.google.com/view/staticquasar931/gm3z/world-map-quest">
+  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png">
+  <title>World Map Quest | StaticQuasar931</title>
+  <!-- Google Analytics (Google Sites compatible VSNL 1.21) -->
+<script>
+  (function loadGAForGoogleSites(w, d, id){
+    w.dataLayer = w.dataLayer || [];
+    w.gtag = w.gtag || function(){ w.dataLayer.push(arguments); };
+
+    w.gtag('js', new Date());
+
+    var s = d.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
+
+    var first = d.getElementsByTagName('script')[0];
+    (first && first.parentNode ? first.parentNode : d.head || d.documentElement).insertBefore(s, first || null);
+
+    w.gtag('config', id, {
+      cookie_domain: (w.location && w.location.hostname) ? w.location.hostname : 'auto',
+      cookie_flags: 'SameSite=None;Secure',
+      send_page_view: true
+    });
+  })(window, document, 'G-5JZHSM4RCW');
+</script>
+  <meta name="keywords" content="World Map Quest, learning, school friendly, StaticQuasar931">
+  <meta name="staticquasar931-github-page" content="https://staticquasar931.github.io/Batch-Hub/world-map-quest/">
+  <style>
+    :root{--bg:#101217;--panel:#181d25;--line:rgba(255,255,255,.14);--brand:#5ee1ff;--good:#9bffb7;--text:#eef6ff;--muted:#b9c8d6}
+    *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+    body{display:flex;align-items:center;justify-content:center;padding:74px 14px 22px;background:linear-gradient(135deg,#101217,#162129 58%,#10201b)}
+    .shell{width:min(940px,100%)}header{display:flex;justify-content:space-between;gap:12px;align-items:end;margin-bottom:12px}
+    h1{margin:0;font-size:clamp(28px,5vw,52px);letter-spacing:0}.home{color:var(--brand);font-weight:800;text-decoration:none}
+    .play{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px}.stat{border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.07);padding:11px;text-align:center}.stat b{display:block;font-size:28px}.stat span{color:var(--muted);font-size:13px}
+    .board{border:1px solid var(--line);border-radius:8px;background:var(--panel);box-shadow:0 18px 42px rgba(0,0,0,.28);padding:18px;min-height:330px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+    #prompt,#phrase,#clue{font-size:clamp(26px,5vw,48px);font-weight:800;text-align:center;line-height:1.14}#scramble{font-size:clamp(34px,7vw,70px);font-weight:900;text-align:center;letter-spacing:.08em;color:var(--good)}
+    #choices{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}button,input{border-radius:8px;border:1px solid var(--line);font:800 20px Arial,Helvetica,sans-serif}
+    button{min-height:54px;background:#233241;color:#fff;cursor:pointer}button:hover,button:focus{outline:2px solid var(--brand);background:#294158}
+    input{width:100%;padding:14px;background:#0f141b;color:#fff;text-align:center}
+    #again{align-self:center;min-width:150px;background:linear-gradient(90deg,var(--brand),var(--good));color:#071016}
+    #staticMenu{position:fixed;left:12px;top:12px;z-index:2147483640;display:flex;gap:10px;align-items:center;user-select:none;padding:9px 12px;border-radius:8px;background:rgba(13,16,22,.9);border:1px solid rgba(94,225,255,.34);color:#edf7ff;box-shadow:0 12px 30px rgba(0,0,0,.32);font:700 13px/1.2 Arial,Helvetica,sans-serif;backdrop-filter:blur(8px)}
+#staticMenu a{color:#5ee1ff;text-decoration:none}
+#closeStaticMenu{color:#ff7272;cursor:pointer;padding:1px 6px;border-radius:5px;background:rgba(255,255,255,.08)}
+#staticSlideMenu{position:fixed;bottom:20px;right:20px;z-index:2147483640;width:92px;height:92px;pointer-events:none;opacity:0;transform:translateX(130px) scale(.96)}
+#staticSlideMenu a,#staticSlideMenu img{display:block;width:100%;height:100%}
+#staticSlideMenu img{object-fit:contain;border:0;background:transparent;transition:opacity .25s ease}
+.slide-in{animation:slideIn 2s ease forwards}.slide-out{animation:slideOut 2s ease forwards}
+@keyframes slideIn{from{opacity:0;transform:translateX(130px) scale(.96)}to{opacity:1;transform:translateX(0) scale(1)}}
+@keyframes slideOut{from{opacity:1;transform:translateX(0) scale(1)}to{opacity:0;transform:translateX(130px) scale(.96)}}
+.seo-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+@media(max-width:760px){#staticMenu{font-size:12px;max-width:calc(100vw - 24px)}#staticSlideMenu{width:80px;height:80px;right:12px;bottom:12px}}
+    @media(max-width:620px){body{align-items:flex-start}.play{grid-template-columns:1fr}#choices{grid-template-columns:1fr}header{display:block}.home{display:inline-block;margin-top:8px}.board{min-height:300px}}
+  </style>
+</head>
+<body>
+  <div id="staticMenu" role="region" aria-label="StaticQuasar931 menu">
+    <a href="https://sites.google.com/view/staticquasar931/gm3z" target="_blank" rel="noopener">More Unblocked Games by Static</a>
+    <span id="closeStaticMenu" title="Hide temporarily">x</span>
+  </div>
+  <div id="staticSlideMenu" aria-live="polite">
+    <a id="staticSlideLink" href="https://sites.google.com/view/staticquasar931/google-form" target="_blank" rel="noopener" aria-label="Open StaticQuasar931 Google Form">
+      <img id="staticSlideImg" src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png" alt="StaticQuasar931 Google Form for feedback and requests">
+    </a>
+  </div>
+  <main class="shell">
+    <header><h1>World Map Quest</h1><a class="home" href="../">Batch Hub</a></header>
+    <div class="play"><div class="stat"><b id="score">0</b><span>score</span></div><div class="stat"><b id="round">1</b><span>round</span></div><div class="stat"><b id="best">0</b><span>best</span></div></div><section class="board"><div id="prompt"></div><div id="choices"></div><button id="again" type="button">Restart</button></section>
+  </main>
+  <script>var qs=[["Which country has Tokyo as its capital?","Japan",["Japan","Brazil","Canada","Egypt"]],["Which country is shaped like a boot?","Italy",["Italy","India","Chile","Spain"]],["Where is the Great Barrier Reef?","Australia",["Australia","Mexico","Kenya","Norway"]],["Which country has Cairo as its capital?","Egypt",["Egypt","France","Peru","Japan"]],["Which country includes the Amazon rainforest?","Brazil",["Brazil","Germany","Iceland","Greece"]],["Which country has Ottawa as its capital?","Canada",["Canada","China","Morocco","Italy"]],["Which country has the Eiffel Tower?","France",["France","South Korea","India","Egypt"]]];var score=0,round=1,best=Number(localStorage.getItem("sq931_world_best")||0),current=null;var promptEl=document.getElementById("prompt"),choices=document.getElementById("choices");function next(){current=qs[Math.floor(Math.random()*qs.length)];promptEl.textContent=current[0];choices.innerHTML=current[2].sort(function(){return Math.random()-.5}).map(function(x){return '<button type="button">'+x+"</button>"}).join("");draw()}function draw(){document.getElementById("score").textContent=score;document.getElementById("round").textContent=round;document.getElementById("best").textContent=best}choices.onclick=function(e){var b=e.target.closest("button");if(!b)return;if(b.textContent===current[1]){score+=10;round++}else{score=Math.max(0,score-5);round++}best=Math.max(best,score);localStorage.setItem("sq931_world_best",best);next()};document.getElementById("again").onclick=function(){score=0;round=1;next()};next();</script>
+  <script>
+    console.log("StaticQuasar931 Game - https://sites.google.com/view/staticquasar931/gm3z");
+    window.onbeforeunload = function(){ return "Are you sure you want to leave? Your session may be interrupted."; };
+    (function(){
+      var menu = document.getElementById("staticMenu");
+      var btn = document.getElementById("closeStaticMenu");
+      var key = "sq931_staticMenu_hidden_until_world-map-quest";
+      var hidden = false;
+      function storeGet(k){ try{return localStorage.getItem(k)}catch(e){return null} }
+      function storeSet(k,v){ try{localStorage.setItem(k,v)}catch(e){} }
+      function applyMenu(){ if(menu) menu.style.display = (Date.now() < Number(storeGet(key)||0) || hidden) ? "none" : "flex"; }
+      if(btn) btn.addEventListener("click", function(){ storeSet(key, String(Date.now() + 180000)); applyMenu(); setTimeout(applyMenu, 180000); });
+      applyMenu();
+      setInterval(applyMenu, 30000);
+      var wrap = document.getElementById("staticSlideMenu");
+      var a = document.getElementById("staticSlideLink");
+      var img = document.getElementById("staticSlideImg");
+      var rotation = [
+        {src:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png", alt:"StaticQuasar931 Google Form for feedback and requests", link:"https://sites.google.com/view/staticquasar931/google-form", label:"Open StaticQuasar931 Google Form"},
+        {src:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Join_Our_DC_StaticQuassar931_lcplrf.png", alt:"Join the StaticQuasar931 Discord", link:"https://discord.gg/DP2hM7RRhR", label:"Join the StaticQuasar931 Discord"},
+        {src:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Follow-us--IG", alt:"Follow StaticQuasar931 on Instagram", link:"https://www.instagram.com/freeschoolgamepage/", label:"Follow StaticQuasar931 on Instagram"}
+      ];
+      rotation.forEach(function(o){ var p = new Image(); p.src = o.src; });
+      var idx = 0;
+      function delay(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
+      function applySlide(state){
+        if(!a || !img) return;
+        a.href = state.link;
+        a.setAttribute("aria-label", state.label);
+        img.alt = state.alt;
+        img.style.opacity = "0";
+        setTimeout(function(){ img.src = state.src; }, 80);
+        img.onload = function(){ img.style.opacity = "1"; };
+      }
+      async function cycle(){
+        for(;;){
+          if(wrap && !hidden){
+            applySlide(rotation[idx]);
+            wrap.style.pointerEvents = "auto";
+            wrap.classList.remove("slide-out");
+            wrap.classList.add("slide-in");
+            await delay(7000);
+            wrap.classList.remove("slide-in");
+            wrap.classList.add("slide-out");
+            await delay(2000);
+            wrap.style.pointerEvents = "none";
+          }
+          await delay(20000);
+          idx = (idx + 1) % rotation.length;
+        }
+      }
+      cycle();
+      var combo = {y:false,u:false,i:false};
+      var sequence = "";
+      function setHidden(value){
+        hidden = value;
+        applyMenu();
+        if(wrap){ wrap.style.display = hidden ? "none" : "block"; wrap.classList.remove("slide-in","slide-out"); }
+      }
+      document.addEventListener("keydown", function(e){
+        var k = String(e.key || "").toLowerCase();
+        if(k === "y" || k === "u" || k === "i"){
+          combo[k] = true;
+          sequence = (sequence + k).slice(-3);
+          if((combo.y && combo.u && combo.i) || sequence === "yui"){
+            setHidden(!hidden);
+            combo = {y:false,u:false,i:false};
+            sequence = "";
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        }
+      }, true);
+      document.addEventListener("keyup", function(e){
+        var k = String(e.key || "").toLowerCase();
+        if(Object.prototype.hasOwnProperty.call(combo, k)) combo[k] = false;
+      }, true);
+    })();
+  </script>
+  <div class="seo-hidden" aria-hidden="true"><h1>World Map Quest unblocked</h1><p>World Map Quest school friendly learning page, academic browser activity, Chromebook learning, StaticQuasar931, math practice, typing practice, geography quiz, vocabulary practice, https://sites.google.com/view/staticquasar931/gm3z, https://sites.google.com/view/staticquasar931/google-form</p></div>
+</body>
+</html>

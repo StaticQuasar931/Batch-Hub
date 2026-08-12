@@ -86,7 +86,16 @@
   <script>
     console.log("StaticQuasar931 Game - https://sites.google.com/view/staticquasar931/gm3z");
     window.onbeforeunload = function(){ return "Are you sure you want to leave? Your session may be interrupted."; };
-    (function(){
+    (async function(){
+      async function joinParts(paths, type){
+        var chunks = [];
+        for(var i=0;i<paths.length;i++){
+          var res = await fetch(paths[i]);
+          if(!res.ok) throw new Error(paths[i] + " " + res.status);
+          chunks.push(await res.arrayBuffer());
+        }
+        return URL.createObjectURL(new Blob(chunks, {type:type}));
+      }
       var canvas = document.getElementById("unity-canvas");
       var panel = document.getElementById("loadingPanel");
       var fill = document.getElementById("progressFill");
@@ -94,7 +103,7 @@
         arguments: [],
         dataUrl: "Build/webSahur.data",
         frameworkUrl: "Build/webSahur.framework.js",
-        codeUrl: "Build/webSahur.wasm",
+        codeUrl: await joinParts(["Build/webSahur.wasm.part0","Build/webSahur.wasm.part1","Build/webSahur.wasm.part2","Build/webSahur.wasm.part3","Build/webSahur.wasm.part4","Build/webSahur.wasm.part5","Build/webSahur.wasm.part6"], "application/wasm"),
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Sahur",
