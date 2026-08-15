@@ -7,6 +7,7 @@
       var isLocal = location.protocol === "file:" || /^(localhost|127\.0\.0\.1)$/i.test(location.hostname);
       document.write('<base href="' + (isLocal ? "./" : cdn) + '">');
     })();
+    var localServicesWrapper = window.localServicesWrapper;
   </script>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -48,7 +49,6 @@
     });
   })(window, document, 'G-5JZHSM4RCW');
 </script>
-  <meta name="keywords" content="Meccha Chameleon, Roblox style, Unity WebGL, StaticQuasar931">
   <meta name="staticquasar931-github-page" content="https://staticquasar931.github.io/Batch-Hub/meccha-chameleon/">
   <style>
     :root{--brand:#5ee1ff;--good:#9bffb7;--panel:rgba(11,14,20,.86)}
@@ -66,7 +66,6 @@
 .slide-in{animation:slideIn 2s ease forwards}.slide-out{animation:slideOut 2s ease forwards}
 @keyframes slideIn{from{opacity:0;transform:translateX(130px) scale(.96)}to{opacity:1;transform:translateX(0) scale(1)}}
 @keyframes slideOut{from{opacity:1;transform:translateX(0) scale(1)}to{opacity:0;transform:translateX(130px) scale(.96)}}
-.seo-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
 @media(max-width:760px){#staticMenu{font-size:12px;max-width:calc(100vw - 24px)}#staticSlideMenu{width:80px;height:80px;right:12px;bottom:12px}}
   </style>
 </head>
@@ -82,6 +81,95 @@
       <img id="staticSlideImg" src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png" alt="StaticQuasar931 Google Form for feedback and requests">
     </a>
   </div>
+  <script>
+    (function(){
+      var saveKey = "sq931_meccha_chameleon_save";
+      function clone(value){
+        try { return JSON.parse(JSON.stringify(value || {})); } catch(e) { return {}; }
+      }
+      function readSave(){
+        try { return JSON.parse(localStorage.getItem(saveKey) || "{}"); } catch(e) { return {}; }
+      }
+      function writeSave(data){
+        try { localStorage.setItem(saveKey, JSON.stringify(clone(data))); } catch(e) {}
+      }
+      var player = {
+        getName: function(){ return "StaticQuasar931"; },
+        getUniqueID: function(){ return "staticquasar931-local"; },
+        getPhoto: function(){ return ""; },
+        getPayingStatus: function(){ return "unknown"; },
+        isAuthorized: function(){ return false; },
+        getMode: function(){ return "lite"; },
+        getData: function(){ return Promise.resolve(readSave()); },
+        setData: function(data){ writeSave(data); return Promise.resolve(); },
+        getStats: function(){ return Promise.resolve({}); },
+        setStats: function(){ return Promise.resolve(); },
+        incrementStats: function(){ return Promise.resolve({}); }
+      };
+      var payments = {
+        getCatalog: function(){ return Promise.resolve([]); },
+        getPurchases: function(){ return Promise.resolve([]); },
+        purchase: function(){ return Promise.reject(new Error("Payments disabled")); },
+        consumePurchase: function(){ return Promise.resolve(); }
+      };
+      function readContainer(containerTag){
+        var all = readSave();
+        var key = containerTag || "default";
+        return all[key] || {};
+      }
+      function writeContainer(containerTag, json){
+        var all = readSave();
+        var key = containerTag || "default";
+        try { all[key] = typeof json === "string" ? JSON.parse(json || "{}") : clone(json); } catch(e) { all[key] = {}; }
+        writeSave(all);
+        return true;
+      }
+      window.localServicesWrapper = window.localServicesWrapper || {
+        cacheSaves: {},
+        flags: {},
+        language: "en",
+        player: player,
+        payments: payments,
+        gameIsReady: function(){ return true; },
+        invokeInterstitial: function(){ return false; },
+        invokeRewarded: function(){ return false; },
+        invokePurchase: function(){ return false; },
+        isInterstitialVisible: function(){ return false; },
+        isRewardedVisible: function(){ return false; },
+        getScoreTable: function(){ return false; },
+        setScore: function(){ return true; },
+        getPlayer: function(){ return Promise.resolve(player); },
+        getPayments: function(){ return Promise.resolve(payments); },
+        getData: function(){ return Promise.resolve(readSave()); },
+        setData: function(data){ writeSave(data); return Promise.resolve(); },
+        getFlags: function(){ return Promise.resolve({}); },
+        getLanguage: function(){ return Promise.resolve("en"); },
+        resolveLanguage: function(){ return "en"; },
+        resolveCacheProducts: function(){ return "[]"; },
+        resolveCachePurchases: function(){ return "[]"; },
+        resolveCacheSaves: function(containerTag){ return JSON.stringify(readContainer(containerTag)); },
+        resolveServerPurchases: function(){ return true; },
+        writeCacheSaves: function(containerTag, json){ return writeContainer(containerTag, json); },
+        writeSaves: function(){ return true; },
+        saveCacheSaves: function(data){ writeSave(data); return Promise.resolve(); }
+      };
+      window.YaGames = window.YaGames || {
+        init: function(){
+          return Promise.resolve({
+            environment: { app: { id: "staticquasar931" }, i18n: { lang: "en", tld: "com" }, browser: { lang: "en" }, payload: null },
+            deviceInfo: { type: "desktop", isMobile:function(){return false;}, isTablet:function(){return false;}, isDesktop:function(){return true;}, isTV:function(){return false;} },
+            adv: { showFullscreenAdv:function(o){ if(o && o.callbacks && o.callbacks.onClose) o.callbacks.onClose(false); }, showRewardedVideo:function(o){ if(o && o.callbacks){ if(o.callbacks.onRewarded) o.callbacks.onRewarded(); if(o.callbacks.onClose) o.callbacks.onClose(); } }, showBannerAdv:function(){}, hideBannerAdv:function(){}, getBannerAdvStatus:function(){ return Promise.resolve({stickyAdvIsShowing:false}); } },
+            feedback: { canReview:function(){ return Promise.resolve({value:false, reason:"disabled"}); }, requestReview:function(){ return Promise.resolve({feedbackSent:false}); } },
+            shortcut: { canShowPrompt:function(){ return Promise.resolve({canShow:false}); }, showPrompt:function(){ return Promise.resolve({outcome:"dismissed"}); } },
+            getPlayer: function(){ return Promise.resolve(player); },
+            getPayments: function(){ return Promise.resolve(payments); },
+            getLeaderboards: function(){ return Promise.resolve({ setLeaderboardScore:function(){return Promise.resolve();}, getLeaderboardEntries:function(){return Promise.resolve({entries:[]});}, getLeaderboardPlayerEntry:function(){return Promise.resolve(null);} }); }
+          });
+        }
+      };
+    })();
+    var localServicesWrapper = window.localServicesWrapper;
+  </script>
   <script src="bin/robbi.loader.js"></script>
   <script>
     async function joinParts(paths, type){
@@ -123,6 +211,7 @@
         if(panel) panel.innerHTML = "<strong>Load failed</strong><p>Check local file paths and console details.</p>";
       }
     })();
+    var localServicesWrapper = window.localServicesWrapper;
   </script>
   <script>
     console.log("StaticQuasar931 Game - https://sites.google.com/view/staticquasar931/gm3z");
@@ -202,7 +291,9 @@
         if(Object.prototype.hasOwnProperty.call(combo, k)) combo[k] = false;
       }, true);
     })();
+    var localServicesWrapper = window.localServicesWrapper;
   </script>
-  <div class="seo-hidden" aria-hidden="true"><h1>Meccha Chameleon unblocked</h1><p>Meccha Chameleon, Meccha Chameleon, Roblox style browser title, Unity WebGL, school friendly, Chromebook, StaticQuasar931, https://sites.google.com/view/staticquasar931/gm3z, https://sites.google.com/view/staticquasar931/google-form</p></div>
 </body>
 </html>
+
+

@@ -1291,6 +1291,11 @@ Module.YandexGames = {
         nativeWeb.console.createText("yandexServices", "local stub");
         try {
             var stubPlayer = {
+                getName: function(){ return "StaticQuasar931"; },
+                getUniqueID: function(){ return "staticquasar931-local"; },
+                getPhoto: function(){ return ""; },
+                getPayingStatus: function(){ return "unknown"; },
+                isAuthorized: function(){ return false; },
                 getMode: function(){ return "lite"; },
                 getData: function(){ return Promise.resolve({}); },
                 setData: function(){ return Promise.resolve(); },
@@ -1312,6 +1317,7 @@ Module.YandexGames = {
                 },
                 getPlayer: function(){ return Promise.resolve(stubPlayer); },
                 getFlags: function(){ return Promise.resolve({}); },
+                getPayments: function(){ return Promise.resolve(this.payments); },
                 environment: { i18n: { lang: "en" } },
                 payments: {
                     getCatalog: function(){ return Promise.resolve([]); },
@@ -2406,3 +2412,4 @@ else if (typeof define === 'function' && define['amd'])
   define([], function() { return unityFramework; });
 else if (typeof exports === 'object')
   exports["unityFramework"] = unityFramework;
+
