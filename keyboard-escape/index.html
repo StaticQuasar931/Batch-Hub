@@ -12,18 +12,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="description" content="Play Keyboard Escape on StaticQuasar931. A Unity browser escape runner also searched as +1 Speed Keyboard Escape, cleaned with local assets and a real startup image.">
-<meta property="og:title" content="Keyboard Escape | StaticQuasar931">
-<meta property="og:description" content="Play Keyboard Escape on StaticQuasar931. A Unity browser escape runner also searched as +1 Speed Keyboard Escape, cleaned with local assets and a real startup image.">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/StaticQuasar931/Batch-Hub@main/keyboard-escape/preview.webp">
+<meta name="description" content="Play Keyboard Escape unblocked, school friendly, and working at school on StaticQuasar931 Games. This +1 Speed Keyboard Escape style Unity browser runner works on Chromebook, PC, and mobile browsers at school, work, and home.">
+<meta property="og:title" content="Keyboard Escape Unblocked | StaticQuasar931 Games">
+<meta property="og:description" content="Play Keyboard Escape unblocked and working at school on StaticQuasar931 Games.">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://staticquasar931.github.io/Batch-Hub/keyboard-escape/">
+<meta property="og:url" content="https://sites.google.com/view/staticquasar931/gm3z/keyboard-escape">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Keyboard Escape | StaticQuasar931">
-<meta name="twitter:description" content="Play Keyboard Escape on StaticQuasar931. A Unity browser escape runner also searched as +1 Speed Keyboard Escape, cleaned with local assets and a real startup image.">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/StaticQuasar931/Batch-Hub@main/keyboard-escape/preview.webp">
+<meta name="twitter:title" content="Keyboard Escape Unblocked | StaticQuasar931 Games">
+<meta name="twitter:description" content="Play Keyboard Escape unblocked and working at school on StaticQuasar931 Games.">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png">
+<link rel="canonical" href="https://sites.google.com/view/staticquasar931/gm3z/keyboard-escape">
 <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png">
-<title>Keyboard Escape | StaticQuasar931</title>
+<title>Keyboard Escape Unblocked | StaticQuasar931 Games</title>
 <!-- Google Analytics (Google Sites compatible VSNL 1.21) -->
 <script>
   (function loadGAForGoogleSites(w, d, id){
@@ -234,6 +235,7 @@ function setBar(pct, label) {
 
 /* â”€â”€ State â”€â”€ */
 var StartUnityInstance;
+var unityStartRequested = false;
 var myGameInstance = null;
 var ysdk           = null;
 var player         = null;
@@ -271,9 +273,8 @@ async function fetchParts(baseUrl, partCount, barStart, barEnd, label) {
   for(var j=0;j<parts.length;j++){merged.set(parts[j],off);off+=parts[j].length;}
   return merged;
 }
-function brotliBlobUrl(uint8, filename){
-  var blob=new Blob([uint8],{type:'application/octet-stream'});
-  return URL.createObjectURL(blob)+'#'+encodeURIComponent(filename);
+function mergedBlobUrl(uint8, type){
+  return URL.createObjectURL(new Blob([uint8], {type:type || 'application/octet-stream'}));
 }
 
 /* â”€â”€ Loader â”€â”€ */
@@ -287,13 +288,14 @@ script.onload=async function(){
     StartUnityInstance=function(){
       setBar(90,'Starting...');
       createUnityInstance(canvas,{
-        dataUrl:            brotliBlobUrl(dataBytes,'build.data.br'),
+        dataUrl:            mergedBlobUrl(dataBytes, 'application/octet-stream'),
         frameworkUrl:       buildUrl+"/build.framework.js",  /* plain JS, no .br */
-        codeUrl:            brotliBlobUrl(wasmBytes,'build.wasm.br'),
+        codeUrl:            mergedBlobUrl(wasmBytes, 'application/wasm'),
         streamingAssetsUrl: "StreamingAssets",
         companyName:        "StaticQuasar931",
         productName:        "Keyboard Escape",
-        productVersion:     "1.0"
+        productVersion:     "1.0",
+        decompressionFallback: true
       },function(progress){
         setBar(90+progress*10, Math.round(90+progress*10)+'%');
       }).then(function(inst){
@@ -308,8 +310,10 @@ script.onload=async function(){
 document.body.appendChild(script);
 
 function StartUnityInstance_IfUnloaded(){
-  if(sdkReadyToStart && typeof StartUnityInstance==='function' && spinner.style.display!=="none")
+  if(sdkReadyToStart && typeof StartUnityInstance === 'function' && !unityStartRequested && myGameInstance === null){
+    unityStartRequested = true;
     StartUnityInstance();
+  }
 }
 
 /* â”€â”€ SDK â”€â”€ */
@@ -580,32 +584,45 @@ function ResumeGame(){
 }
 </script>
 <style>
-  #staticMenu{position:fixed;left:12px;top:12px;z-index:2147483640;display:flex;gap:10px;align-items:center;user-select:none;padding:9px 12px;border-radius:8px;background:rgba(13,16,22,.9);border:1px solid rgba(94,225,255,.34);color:#edf7ff;box-shadow:0 12px 30px rgba(0,0,0,.32);font:700 13px/1.2 Arial,Helvetica,sans-serif;backdrop-filter:blur(8px)}
-  #staticMenu a{color:#5ee1ff;text-decoration:none}
-  #closeStaticMenu{color:#ff7272;cursor:pointer;padding:1px 6px;border-radius:5px;background:rgba(255,255,255,.08);border:0;font:700 13px Arial,Helvetica,sans-serif}
-  #staticSlideMenu{position:fixed;bottom:20px;right:20px;z-index:2147483640;width:92px;height:92px;pointer-events:none;opacity:0;transform:translateX(130px) scale(.96)}
-  #staticSlideMenu a,#staticSlideMenu img{display:block;width:100%;height:100%}
-  #staticSlideMenu img{object-fit:contain;border:0;background:transparent;transition:opacity .25s ease}
-  .slide-in{animation:slideIn 2s ease forwards}.slide-out{animation:slideOut 2s ease forwards}.visual-seo-hidden{display:none!important}
+  :root{
+    --sq-brand:#5ee1ff;
+    --sq-glow:0 0 12px rgba(94,225,255,.65), 0 0 32px rgba(155,255,183,.35);
+    --sq-shadow:0 10px 30px rgba(0,0,0,.4);
+  }
+  .seo-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;}
+  #staticMenu{position:fixed;left:12px;top:12px;z-index:2147483640;display:flex;gap:10px;align-items:center;user-select:none;padding:10px 14px;border-radius:12px;background:linear-gradient(135deg, rgba(20,20,28,.9), rgba(20,20,28,.6));border:1px solid rgba(94,225,255,.35);color:#e8f3ff;box-shadow:var(--sq-glow), var(--sq-shadow);font:800 14px/1.2 Arial,Helvetica,sans-serif;backdrop-filter:blur(8px);animation:menuEnter .6s ease .15s both;}
+  #staticMenu img{width:24px;height:24px;border-radius:6px;flex:0 0 auto;}
+  #staticMenu a{color:#5ee1ff;font-weight:800;text-decoration:none;}
+  #closeStaticMenu{color:#ff5555;cursor:pointer;padding:2px 6px;border-radius:6px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);font:800 13px Arial,Helvetica,sans-serif;}
+  #staticSlideMenu{position:fixed;right:20px;bottom:20px;z-index:2147483640;width:92px;height:92px;pointer-events:none;opacity:0;transform:translateX(130px) scale(.96);}
+  #staticSlideMenu a,#staticSlideMenu img{display:block;width:100%;height:100%;}
+  #staticSlideMenu a{pointer-events:auto;}
+  #staticSlideMenu img{object-fit:contain;border:0;background:transparent;filter:drop-shadow(0 10px 22px rgba(0,0,0,.45));}
+  .slide-in{animation:slideIn 2s ease forwards;}.slide-out{animation:slideOut 2s ease forwards;}.visual-seo-hidden{display:none!important;}
+  @keyframes menuEnter{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
   @keyframes slideIn{from{opacity:0;transform:translateX(130px) scale(.96)}to{opacity:1;transform:translateX(0) scale(1)}}
   @keyframes slideOut{from{opacity:1;transform:translateX(0) scale(1)}to{opacity:0;transform:translateX(130px) scale(.96)}}
-  @media(max-width:760px){#staticMenu{font-size:12px;max-width:calc(100vw - 24px)}#staticSlideMenu{width:80px;height:80px;right:12px;bottom:12px}}
+  @media(max-width:760px){#staticMenu{font-size:12px;max-width:calc(100vw - 24px);padding:9px 11px;}#staticSlideMenu{width:80px;height:80px;right:12px;bottom:12px;}}
 </style>
 <nav id="staticMenu" aria-label="StaticQuasar931 menu">
-  <img src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png" alt="StaticQuasar931" style="width:24px;height:24px;border-radius:5px">
-  <a href="https://sites.google.com/view/staticquasar931/gm3z?utm_source=visualseo_keyboard_escape" target="_blank" rel="noopener">StaticQuasar931</a>
+  <img src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png" alt="StaticQuasar931">
+  <a href="https://sites.google.com/view/staticquasar931/gm3z?utm_source=visualseo_keyboard_escape" target="_blank" rel="noopener">StaticQuasar931 Games</a>
   <button id="closeStaticMenu" type="button" aria-label="Hide StaticQuasar931 menu">x</button>
 </nav>
 <div id="staticSlideMenu" aria-label="StaticQuasar931 visual links">
-  <a id="staticSlideLink" href="https://sites.google.com/view/staticquasar931/google-form?utm_source=visualseo_keyboard_escape" target="_blank" rel="noopener" aria-label="Open StaticQuasar931 Google Form">
+  <a id="staticSlideLink" href="https://sites.google.com/view/staticquasar931/google-form" target="_blank" rel="noopener" aria-label="Open StaticQuasar931 Google Form">
     <img id="staticSlideImage" src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png" alt="StaticQuasar931 Google Form">
   </a>
+</div>
+<div class="seo-hidden" aria-hidden="true">
+  <h1>Keyboard Escape Unblocked | StaticQuasar931 Games</h1>
+  <p>Play Keyboard Escape unblocked, +1 Speed Keyboard Escape, Keyboard Escape online, keyboard escape game, and key board escape on StaticQuasar931. This school friendly browser Unity runner is made for Chromebook, PC, and mobile players looking for games working at school, play at school pages, static, staticquasar, staticquasar931, static 931, 931, staticq, and staticq931.</p>
+  <p><a href="https://sites.google.com/view/staticquasar931/gm3z">More StaticQuasar931 games</a> <a href="https://sites.google.com/view/staticquasar931/google-form">Request games on StaticQuasar931</a></p>
 </div>
 <script>
   console.log("StaticQuasar931 Game - https://sites.google.com/view/staticquasar931/gm3z");
   window.onbeforeunload = function(){ return "Are you sure you want to leave? Your session may be interrupted."; };
   (function(){
-    var gameSlug = "keyboard_escape";
     var staticMenu = document.getElementById("staticMenu");
     var closeStaticMenu = document.getElementById("closeStaticMenu");
     var staticSlideMenu = document.getElementById("staticSlideMenu");
@@ -616,53 +633,24 @@ function ResumeGame(){
     var menuRestoreTimer = null;
     var slideIndex = 0;
     var slideItems = [
-      {image:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png",href:"https://sites.google.com/view/staticquasar931/google-form?utm_source=visualseo_" + gameSlug,alt:"StaticQuasar931 Google Form",label:"Open StaticQuasar931 Google Form"},
+      {image:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png",href:"https://sites.google.com/view/staticquasar931/google-form",alt:"StaticQuasar931 Google Form",label:"Open StaticQuasar931 Google Form"},
       {image:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Join_Our_DC_StaticQuassar931_lcplrf.png",href:"https://discord.gg/DP2hM7RRhR",alt:"StaticQuasar931 Discord",label:"Join the StaticQuasar931 Discord"},
-      {image:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Follow-us--IG",href:"https://www.instagram.com/freeschoolgamepage/?utm_source=visualseo_" + gameSlug,alt:"StaticQuasar931 Instagram",label:"Follow StaticQuasar931 on Instagram"}
+      {image:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Follow-us--IG",href:"https://www.instagram.com/freeschoolgamepage/",alt:"StaticQuasar931 Instagram",label:"Follow StaticQuasar931 on Instagram"}
     ];
-    function setVisualSeoVisible(visible){
-      visualSeoVisible = visible;
-      if(staticMenu) staticMenu.classList.toggle("visual-seo-hidden", !visible);
-      if(staticSlideMenu) staticSlideMenu.classList.toggle("visual-seo-hidden", !visible);
-    }
-    function rotateSlide(){
-      if(!visualSeoVisible || !staticSlideMenu || !staticSlideLink || !staticSlideImage) return;
-      var item = slideItems[slideIndex % slideItems.length];
-      staticSlideImage.src = item.image;
-      staticSlideImage.alt = item.alt;
-      staticSlideLink.href = item.href;
-      staticSlideLink.setAttribute("aria-label", item.label);
-      staticSlideMenu.classList.remove("slide-out");
-      staticSlideMenu.classList.add("slide-in");
-      window.setTimeout(function(){
-        staticSlideMenu.classList.remove("slide-in");
-        staticSlideMenu.classList.add("slide-out");
-      }, 6500);
-      slideIndex++;
-    }
-    if(closeStaticMenu && staticMenu){
-      closeStaticMenu.addEventListener("click", function(){
-        staticMenu.classList.add("visual-seo-hidden");
-        window.clearTimeout(menuRestoreTimer);
-        menuRestoreTimer = window.setTimeout(function(){
-          if(visualSeoVisible) staticMenu.classList.remove("visual-seo-hidden");
-        }, 180000);
-      });
-    }
-    document.addEventListener("keydown", function(event){
-      keySequence = (keySequence + String(event.key || "").toLowerCase()).slice(-3);
-      if(keySequence === "yui"){
-        setVisualSeoVisible(!visualSeoVisible);
-        keySequence = "";
-      }
-    }, true);
+    function setVisualSeoVisible(visible){visualSeoVisible = visible;if(staticMenu) staticMenu.classList.toggle("visual-seo-hidden", !visible);if(staticSlideMenu) staticSlideMenu.classList.toggle("visual-seo-hidden", !visible);}
+    function rotateSlide(){if(!visualSeoVisible || !staticSlideMenu || !staticSlideLink || !staticSlideImage) return;var item = slideItems[slideIndex % slideItems.length];staticSlideImage.src = item.image;staticSlideImage.alt = item.alt;staticSlideLink.href = item.href;staticSlideLink.setAttribute("aria-label", item.label);staticSlideMenu.classList.remove("slide-out");staticSlideMenu.classList.add("slide-in");window.setTimeout(function(){staticSlideMenu.classList.remove("slide-in");staticSlideMenu.classList.add("slide-out");}, 6500);slideIndex++;}
+    if(closeStaticMenu && staticMenu){closeStaticMenu.addEventListener("click", function(){staticMenu.classList.add("visual-seo-hidden");window.clearTimeout(menuRestoreTimer);menuRestoreTimer = window.setTimeout(function(){if(visualSeoVisible) staticMenu.classList.remove("visual-seo-hidden");}, 180000);});}
+    document.addEventListener("keydown", function(event){keySequence = (keySequence + String(event.key || "").toLowerCase()).slice(-3);if(keySequence === "yui"){setVisualSeoVisible(!visualSeoVisible);keySequence = "";}}, true);
     setVisualSeoVisible(true);
     window.setTimeout(rotateSlide, 1800);
     window.setInterval(rotateSlide, 12500);
   })();
-</script>
-</body>
+</script></body>
 </html>
+
+
+
+
 
 
 
