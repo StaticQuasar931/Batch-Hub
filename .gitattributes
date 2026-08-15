@@ -1,2 +1,13 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+*.unityweb -text
+*.br -text
+*.part* -text
+*.png -text
+*.jpg -text
+*.wasm -text
+*.data -text
+
+*.webp -text
+*.avif -text

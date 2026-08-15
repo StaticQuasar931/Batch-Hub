@@ -20,3 +20,13 @@
 
 - Shell Shockers, Venge/Veck-style multiplayer, Worldguessr, and Copter Royale are not clean local repo ports without permission or their live services.
 - Meccha Chameleon was prioritized because the user supplied a Yandex app URL and a related downloadable Unity build was already available locally.
+
+## 2026-08-15 Additions
+- 67 Clicker: built from the user-provided download folder the user-provided 67 Clicker download folder; donor jsDelivr links were replaced with local repo assets and donor startup branding was removed.
+- Keyboard Escape: built from the user-provided download folder the user-provided Keyboard Escape download folder; fake product metadata was corrected and the local Yandex/Unity startup flow was preserved.
+
+
+- 2026-08-15 image cleanup: replaced donor loading logos with neutral game-title startup text, changed 67 Clicker to the provided 67clicker AVIF asset, and changed Keyboard Escape to the provided keyboard background WebP asset.
+
+
+

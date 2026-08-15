@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<script>
+  (function(){
+    var cdn = "https://cdn.jsdelivr.net/gh/StaticQuasar931/Batch-Hub@main/keyboard-escape/";
+    var isLocal = location.protocol === "file:" || /^(localhost|127\.0\.0\.1)$/i.test(location.hostname);
+    document.write('<base href="' + (isLocal ? "./" : cdn) + '">');
+  })();
+</script>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="description" content="Play Keyboard Escape on StaticQuasar931. A Unity browser escape runner also searched as +1 Speed Keyboard Escape, cleaned with local assets and a real startup image.">
+<meta property="og:title" content="Keyboard Escape | StaticQuasar931">
+<meta property="og:description" content="Play Keyboard Escape on StaticQuasar931. A Unity browser escape runner also searched as +1 Speed Keyboard Escape, cleaned with local assets and a real startup image.">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/StaticQuasar931/Batch-Hub@main/keyboard-escape/preview.webp">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://staticquasar931.github.io/Batch-Hub/keyboard-escape/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Keyboard Escape | StaticQuasar931">
+<meta name="twitter:description" content="Play Keyboard Escape on StaticQuasar931. A Unity browser escape runner also searched as +1 Speed Keyboard Escape, cleaned with local assets and a real startup image.">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/StaticQuasar931/Batch-Hub@main/keyboard-escape/preview.webp">
+<link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png">
+<title>Keyboard Escape | StaticQuasar931</title>
+<!-- Google Analytics (Google Sites compatible VSNL 1.21) -->
+<script>
+  (function loadGAForGoogleSites(w, d, id){
+    w.dataLayer = w.dataLayer || [];
+    w.gtag = w.gtag || function(){ w.dataLayer.push(arguments); };
+
+    w.gtag('js', new Date());
+
+    var s = d.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
+
+    var first = d.getElementsByTagName('script')[0];
+    (first && first.parentNode ? first.parentNode : d.head || d.documentElement).insertBefore(s, first || null);
+
+    w.gtag('config', id, {
+      cookie_domain: (w.location && w.location.hostname) ? w.location.hostname : 'auto',
+      cookie_flags: 'SameSite=None;Secure',
+      send_page_view: true
+    });
+  })(window, document, 'G-5JZHSM4RCW');
+</script>
+<link rel="stylesheet" href="./style.css"/>
+<style>
+  canvas:focus{outline:none;}
+  html,body{padding:0;margin:0;overflow:hidden;-webkit-touch-callout:none;
+    -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;
+    user-select:none;-webkit-tap-highlight-color:rgba(0,0,0,0);height:100%;}
+
+  #unity-loading-bar{display:flex;flex-direction:column;align-items:center;gap:12px;}
+
+  #unity-progress-bar-empty{
+    width:min(360px,72vw);height:18px;padding:3px;border-radius:999px;
+    background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.35);
+    box-shadow:0 10px 30px rgba(0,0,0,0.28),inset 0 1px 0 rgba(255,255,255,0.22);
+    overflow:hidden;backdrop-filter:blur(6px);}
+
+  #unity-progress-bar-full{
+    width:0%;height:100%;border-radius:999px;
+    background:linear-gradient(90deg,#67e8f9 0%,#38bdf8 45%,#a78bfa 100%);
+    box-shadow:0 0 16px rgba(56,189,248,0.65),inset 0 1px 0 rgba(255,255,255,0.42);
+    transition:width 0.18s ease-out;}
+
+  #unity-progress-percent{
+    min-height:22px;font-family:Arial,sans-serif;font-size:18px;font-weight:700;
+    color:#ffffff;letter-spacing:0.4px;text-shadow:0 2px 8px rgba(0,0,0,0.55);}
+  .sq-loading-title{color:#fff;font:900 clamp(28px,6vw,68px)/1 Arial,Helvetica,sans-serif;text-align:center;text-shadow:0 4px 20px rgba(0,0,0,.7);letter-spacing:0;padding:0 14px}
+</style>
+</head>
+<body class="dark">
+<div id="unity-container" class="unity-desktop">
+  <canvas id="unity-canvas" tabindex="-1"></canvas>
+</div>
+<div id="loading-cover" style="display:none;">
+  <div id="unity-loading-bar">
+    <div id="unity-logo"><div class="sq-loading-title" aria-label="Keyboard Escape loading">Keyboard Escape</div></div>
+    <div id="unity-progress-bar-empty" style="display:none;">
+      <div id="unity-progress-bar-full"></div>
+    </div>
+    <div id="unity-progress-percent" style="display:none;">0%</div>
+    <div class="spinner"></div>
+  </div>
+</div>
+
+<!-- YaGames stub -->
+<script>
+window.YaGames = { init: function() {
+  var sdk = {
+    environment:{ app:{id:'0'}, i18n:{lang:'en',tld:'com'}, browser:{lang:'en'}, payload:null },
+    deviceInfo:{ type:'desktop',
+      isMobile:function(){return false;}, isDesktop:function(){return true;},
+      isTablet:function(){return false;}, isTV:function(){return false;}
+    },
+    screen:{ fullscreen:{
+      status:'on',
+      request:function(){ return Promise.resolve(); },
+      exit:function(){   return Promise.resolve(); }
+    }},
+    adv:{
+      showFullscreenAdv:function(o){
+        /* Stub: immediately close ad so Unity gets focus back */
+        if(o&&o.callbacks){
+          if(o.callbacks.onOpen) o.callbacks.onOpen();
+          setTimeout(function(){
+            if(o.callbacks.onClose) o.callbacks.onClose(false);
+          }, 0);
+        }
+      },
+      showRewardedVideo:function(o){
+        if(!o||!o.callbacks) return;
+        if(o.callbacks.onOpen)     o.callbacks.onOpen();
+        if(o.callbacks.onRewarded) o.callbacks.onRewarded();
+        if(o.callbacks.onClose)    o.callbacks.onClose();
+      },
+      showBannerAdv:function(){}, hideBannerAdv:function(){},
+      getBannerAdvStatus:function(){ return Promise.resolve({stickyAdvIsShowing:false}); }
+    },
+    auth:{ openAuthDialog:function(){ return Promise.resolve(); } },
+    feedback:{
+      canReview:function(){ return Promise.resolve({value:false,reason:''}); },
+      requestReview:function(){ return Promise.resolve({feedbackSent:false}); }
+    },
+    shortcut:{
+      canShowPrompt:function(){ return Promise.resolve({canShow:false}); },
+      showPrompt:function(){ return Promise.resolve({outcome:'rejected'}); }
+    },
+    getPayments:function(){ return Promise.reject('no payments'); },
+    getFlags:function(){    return Promise.resolve({}); },
+    getLeaderboards:function(){ return Promise.resolve({
+      setLeaderboardScore:function(n,s){ return Promise.resolve(); },
+      getLeaderboardDescription:function(){ return Promise.reject('no lb'); },
+      getLeaderboardEntries:function(){ return Promise.reject('no lb'); }
+    });},
+    getPlayer:function(){ return Promise.resolve({
+      isAuthorized:function(){return false;}, getMode:function(){return 'lite';},
+      getName:function(){return '';}, getUniqueID:function(){return '0';},
+      getPhoto:function(){return '';}, getPayingStatus:function(){return 'unknown';},
+      setData:function(){return Promise.resolve();}, getData:function(){return Promise.resolve({});}
+    });},
+    serverTime:function(){ return Promise.resolve(Date.now()); },
+    on:function(){},
+    features:{
+      LoadingAPI:{ready:function(){}},
+      GameplayAPI:{start:function(){},stop:function(){}}
+    }
+  };
+  return Promise.resolve(sdk);
+}};
+</script>
+<script>
+
+/* AudioContext unlock */
+(function(){
+  function u(){
+    if(window._au) return; window._au=true;
+    try{var c=new(window.AudioContext||window.webkitAudioContext)();
+      var b=c.createBuffer(1,1,22050); var s=c.createBufferSource();
+      s.buffer=b; s.connect(c.destination); s.start(0); c.resume&&c.resume();
+    }catch(e){}
+    ['touchstart','pointerdown','click'].forEach(function(t){document.removeEventListener(t,u);});
+  }
+  ['touchstart','pointerdown','click'].forEach(function(t){document.addEventListener(t,u,{passive:true});});
+})();
+
+/* Blur/focus blocker */
+if(!window.blurFocusHandlersInstalled){
+  window.addEventListener('blur',function(){
+    var btn=document.createElement('button');
+    Object.assign(btn.style,{position:'fixed',top:'0',left:'0',width:'100%',height:'100%',
+      zIndex:'9999',backgroundColor:'rgba(0,0,0,0)',border:'none',cursor:'default'});
+    document.body.appendChild(btn);
+    window.addEventListener('focus',function rem(){
+      btn.parentNode&&btn.parentNode.removeChild(btn);
+      window.removeEventListener('focus',rem);
+    });
+  });
+  window.blurFocusHandlersInstalled=true;
+}
+</script>
+
+<script>
+var buildUrl   = "Build";
+var DATA_PARTS = 4;  /* 26.1MB / 8MB = 4 parts */
+var WASM_PARTS = 6;  /* 45.9MB / 8MB = 6 parts */
+
+var container        = document.querySelector("#unity-container");
+var canvas           = document.querySelector("#unity-canvas");
+var loadingCover     = document.querySelector("#loading-cover");
+var progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
+var progressBarFull  = document.querySelector("#unity-progress-bar-full");
+var progressPercent  = document.querySelector("#unity-progress-percent");
+var spinner          = document.querySelector('.spinner');
+
+if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))
+  container.className = "unity-mobile";
+
+loadingCover.style.background = "url('background.webp') center / cover";
+loadingCover.style.display = "";
+
+document.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+window.addEventListener('pointerdown', function(){ FocusGame(); });
+window.addEventListener('touchstart',  function(){ FocusGame(); });
+
+document.addEventListener('visibilitychange', function(){
+  if(ysdk!==null&&initGame===true){
+    if(document.hidden)
+      myGameInstance.SendMessage('YandexGame','OnVisibilityGameWindow','false');
+    else {
+      myGameInstance.SendMessage('YandexGame','OnVisibilityGameWindow','true');
+      if((ysdk.deviceInfo.isMobile()||ysdk.deviceInfo.isTablet())&&ysdk.screen.fullscreen.status==='off')
+        ysdk.screen.fullscreen.request();
+    }
+  }
+});
+
+window.addEventListener('beforeunload', function(){
+  if(myGameInstance!=null) myGameInstance.SendMessage('YandexGame','_SaveProgress');
+});
+
+/* DATA 0-45%, WASM 45-90%, Unity 90-100% */
+function setBar(pct, label) {
+  spinner.style.display = "none";
+  progressBarEmpty.style.display = "block";
+  progressPercent.style.display  = "block";
+  progressBarFull.style.width    = pct.toFixed(1) + '%';
+  progressPercent.textContent    = label || (Math.round(pct) + '%');
+}
+
+/* â”€â”€ State â”€â”€ */
+var StartUnityInstance;
+var myGameInstance = null;
+var ysdk           = null;
+var player         = null;
+var payments       = null;
+var leaderboard    = null;
+var initGame       = false;
+var nowFullAdOpen  = false;
+var sdkReadyToStart= LocalHost();  /* same flag as original */
+var cloudSaves     = 'noData';
+var paymentsData   = 'none';
+var environmentData= 'null';
+var playerData     = 'noData';
+
+function FocusGame(){ window.focus(); canvas.focus(); }
+function LocalHost(){
+  var h=window.location.hostname;
+  return h==="localhost"||h==="127.0.0.1";
+}
+
+/* â”€â”€ Part fetch (br = blob fragment trick, no manual brotli decode) â”€â”€ */
+async function fetchParts(baseUrl, partCount, barStart, barEnd, label) {
+  var parts=[];
+  for(var i=0;i<partCount;i++){
+    setBar(barStart+(i/partCount)*(barEnd-barStart),
+           label+(i+1)+'/'+partCount+' ('+Math.round(barStart+(i/partCount)*(barEnd-barStart))+'%)');
+    var r=await fetch(baseUrl+'.part'+i);
+    if(!r.ok) throw new Error(label+'part'+i+' HTTP '+r.status);
+    parts.push(new Uint8Array(await r.arrayBuffer()));
+    setBar(barStart+((i+1)/partCount)*(barEnd-barStart),
+           label+(i+1)+'/'+partCount+' ('+Math.round(barStart+((i+1)/partCount)*(barEnd-barStart))+'%)');
+    console.log('['+label.trim()+'] part'+i+': '+parts[parts.length-1].length+' bytes');
+  }
+  var total=parts.reduce(function(s,p){return s+p.length;},0);
+  var merged=new Uint8Array(total); var off=0;
+  for(var j=0;j<parts.length;j++){merged.set(parts[j],off);off+=parts[j].length;}
+  return merged;
+}
+function brotliBlobUrl(uint8, filename){
+  var blob=new Blob([uint8],{type:'application/octet-stream'});
+  return URL.createObjectURL(blob)+'#'+encodeURIComponent(filename);
+}
+
+/* â”€â”€ Loader â”€â”€ */
+var script=document.createElement("script");
+script.src=buildUrl+"/build.loader.js";
+script.onload=async function(){
+  try{
+    var dataBytes=await fetchParts(buildUrl+'/build.data.br', DATA_PARTS, 0,  45, 'Data ');
+    var wasmBytes=await fetchParts(buildUrl+'/build.wasm.br', WASM_PARTS, 45, 90, 'WASM ');
+
+    StartUnityInstance=function(){
+      setBar(90,'Starting...');
+      createUnityInstance(canvas,{
+        dataUrl:            brotliBlobUrl(dataBytes,'build.data.br'),
+        frameworkUrl:       buildUrl+"/build.framework.js",  /* plain JS, no .br */
+        codeUrl:            brotliBlobUrl(wasmBytes,'build.wasm.br'),
+        streamingAssetsUrl: "StreamingAssets",
+        companyName:        "StaticQuasar931",
+        productName:        "Keyboard Escape",
+        productVersion:     "1.0"
+      },function(progress){
+        setBar(90+progress*10, Math.round(90+progress*10)+'%');
+      }).then(function(inst){
+        myGameInstance=inst;
+        loadingCover.style.display="none";
+      }).catch(function(msg){console.error(msg);});
+    };
+  }catch(e){ alert('Download error: '+e.message); return; }
+
+  StartUnityInstance_IfUnloaded();
+};
+document.body.appendChild(script);
+
+function StartUnityInstance_IfUnloaded(){
+  if(sdkReadyToStart && typeof StartUnityInstance==='function' && spinner.style.display!=="none")
+    StartUnityInstance();
+}
+
+/* â”€â”€ SDK â”€â”€ */
+InitYSDK();
+async function InitYSDK(){
+  try{
+    if(LocalHost()){ sdkReadyToStart=true; StartUnityInstance_IfUnloaded(); return; }
+    console.log('Init Yandex SDK');
+    ysdk=await YaGames.init();
+    FullAdShow();
+    cloudSaves    = await LoadCloud();                    console.log('Init Storage ysdk');
+    paymentsData  = await GetPayments();                  console.log('Init Payments ysdk');
+    await InitLeaderboards();                             console.log('Init Leaderboards');
+    environmentData=await RequestingEnvironmentData();    console.log('Init Envir ysdk');
+    playerData    = await InitPlayer();                   console.log('Init Player ysdk');
+  }catch(e){console.error('CRASH Init SDK:',e);}
+  sdkReadyToStart=true;
+  StartUnityInstance_IfUnloaded();
+}
+
+function InitGame(){
+  console.log('Init Game Success');
+  initGame=true;
+  if(nowFullAdOpen&&myGameInstance) myGameInstance.SendMessage('YandexGame','OpenFullAd');
+}
+
+function FullAdShow(){
+  try{
+    if(!nowFullAdOpen&&ysdk){
+      ysdk.adv.showFullscreenAdv({callbacks:{
+        onOpen:  function(){ console.log('Open Ad'); nowFullAdOpen=true;
+          if(initGame) myGameInstance.SendMessage('YandexGame','OpenFullAd'); },
+        onClose: function(was){ nowFullAdOpen=false;
+          if(initGame) myGameInstance.SendMessage('YandexGame','CloseFullAd',was?'true':'false');
+          FocusGame(); },
+        onError: function(e){ console.error(e);
+          if(myGameInstance) myGameInstance.SendMessage('YandexGame','ErrorFullAd'); FocusGame(); }
+      }});
+    }
+  }catch(e){console.error('CRASH FullAd:',e.message);}
+}
+function RewardedShow(id){
+  try{
+    ysdk.adv.showRewardedVideo({callbacks:{
+      onOpen:     function(){ myGameInstance.SendMessage('YandexGame','OpenVideo'); },
+      onClose:    function(){ myGameInstance.SendMessage('YandexGame','CloseVideo'); FocusGame(); },
+      onRewarded: function(){ myGameInstance.SendMessage('YandexGame','RewardVideo',id); },
+      onError:    function(e){ console.error(e); myGameInstance.SendMessage('YandexGame','ErrorVideo'); }
+    }});
+  }catch(err){console.error(err);}
+}
+function StickyAdActivity(show){
+  try{
+    ysdk.adv.getBannerAdvStatus().then(function(d){
+      if(d.stickyAdvIsShowing){if(!show) ysdk.adv.hideBannerAdv();}
+      else if(d.reason) console.log('Sticky not shown:',d.reason);
+      else if(show) ysdk.adv.showBannerAdv();
+    });
+  }catch(e){console.error(e);}
+}
+function Review(){
+  try{
+    ysdk.feedback.canReview().then(function(d){
+      if(d.value){ ysdk.feedback.requestReview().then(function(r){
+        myGameInstance.SendMessage('YandexGame','ReviewSent',r.feedbackSent?'true':'false'); FocusGame();
+      }); } else { console.log('reviewCanShow=false',d.reason); FocusGame(); }
+    });
+  }catch(e){console.error(e);FocusGame();}
+}
+function PromptShow(){
+  try{
+    ysdk.shortcut.showPrompt().then(function(r){
+      myGameInstance.SendMessage('YandexGame',r.outcome==='accepted'?'OnPromptSuccess':'OnPromptFail');
+      FocusGame();
+    });
+  }catch(e){console.error(e);FocusGame();}
+}
+function SaveCloud(jsonData,flush){
+  if(!player){console.error('CRASH Save Cloud: no player');return;}
+  try{player.setData({saves:[jsonData]},flush);}catch(e){console.error(e);}
+}
+function LoadCloud(sendback){
+  return new Promise(function(resolve){
+    if(!ysdk){if(sendback&&myGameInstance)myGameInstance.SendMessage('YandexGame','SetLoadSaves','noData');resolve('noData');return;}
+    try{
+      ysdk.getPlayer({scopes:false}).then(function(_p){
+        _p.getData(["saves"]).then(function(data){
+          var r=data.saves?JSON.stringify(data.saves):'noData';
+          if(sendback&&myGameInstance)myGameInstance.SendMessage('YandexGame','SetLoadSaves',r);resolve(r);
+        }).catch(function(){if(sendback&&myGameInstance)myGameInstance.SendMessage('YandexGame','SetLoadSaves','noData');resolve('noData');});
+      }).catch(function(e){console.error(e);if(sendback&&myGameInstance)myGameInstance.SendMessage('YandexGame','SetLoadSaves','noData');resolve('noData');});
+    }catch(e){console.error(e);resolve('noData');}
+  });
+}
+function GetPayments(sendback){
+  return new Promise(function(resolve){
+    try{
+      if(!ysdk){resolve('none');return;}
+      ysdk.getPayments().then(function(_p){
+        payments=_p;
+        _p.getCatalog().then(function(products){
+          _p.getPurchases().then(function(purchases){
+            var ids=[],titles=[],descs=[],imgs=[],prices=[],pvals=[],codes=[],imgURLs=[],cons=[];
+            for(var i=0;i<products.length;i++){
+              ids[i]=products[i].id;titles[i]=products[i].title;descs[i]=products[i].description;
+              imgs[i]=products[i].imageURI;prices[i]=products[i].price;pvals[i]=products[i].priceValue;
+              codes[i]=products[i].priceCurrencyCode;imgURLs[i]=products[i].getPriceCurrencyImage("medium");
+              cons[i]=!purchases.some(function(p){return p.productID===ids[i];});
+            }
+            var j=JSON.stringify({id:ids,title:titles,description:descs,imageURI:imgs,price:prices,
+              priceValue:pvals,priceCurrencyCode:codes,currencyImageURL:imgURLs,consumed:cons,
+              language:ysdk.environment.i18n.lang});
+            if(sendback&&myGameInstance)myGameInstance.SendMessage('YandexGame','PaymentsEntries',j);resolve(j);
+          });
+        });
+      }).catch(function(e){console.log('Purchases not available',e.message);resolve('none');});
+    }catch(e){console.error(e);resolve('none');}
+  });
+}
+function BuyPayments(id){
+  try{
+    if(payments){payments.purchase(id).then(function(){ConsumePurchase(id);FocusGame();})
+      .catch(function(e){console.error(e);myGameInstance.SendMessage('YandexGame','OnPurchaseFailed',id);FocusGame();}); }
+    else console.log('Payments == null');
+  }catch(e){console.error(e);FocusGame();}
+}
+function ConsumePurchase(id){
+  try{if(payments)payments.getPurchases().then(function(ps){
+    for(var i=0;i<ps.length;i++)if(ps[i].productID===id){
+      payments.consumePurchase(ps[i].purchaseToken);myGameInstance.SendMessage('YandexGame','OnPurchaseSuccess',id);}
+  });}catch(e){console.error(e);}
+}
+function ConsumePurchases(){
+  try{if(payments)payments.getPurchases().then(function(ps){
+    for(var i=0;i<ps.length;i++){
+      payments.consumePurchase(ps[i].purchaseToken);myGameInstance.SendMessage('YandexGame','OnPurchaseSuccess',ps[i].productID);}
+  });}catch(e){console.error(e);}
+}
+async function InitLeaderboards(){
+  if(!ysdk){leaderboard=null;return;}
+  try{
+    leaderboard=typeof ysdk.getLeaderboards==='function'
+      ? await ysdk.getLeaderboards()
+      : ysdk.leaderboards||null;
+    console.log(leaderboard?'Leaderboards initialized':'Leaderboards unavailable');
+  }catch(e){console.error('CRASH Init Leaderboards:',e.message);leaderboard=null;}
+}
+function WaitForLeaderboard(){
+  return new Promise(function(resolve,reject){
+    var iv=setInterval(function(){if(leaderboard!==null){clearInterval(iv);clearTimeout(to);resolve();}},100);
+    var to=setTimeout(function(){clearInterval(iv);reject(new Error("LB timeout"));},5000);
+  });
+}
+async function GetLeaderboardScores(nameLB,maxPlayers,quantityTop,quantityAround,photoSize,auth){
+  try{
+    if(!leaderboard) await WaitForLeaderboard();
+    var j={technoName:'',isDefault:false,isInvertSortOrder:false,decimalOffset:0,type:''};
+    leaderboard.getLeaderboardDescription(nameLB).then(function(res){
+      j.technoName=nameLB; j.isDefault=res.default;
+      j.isInvertSortOrder=Boolean(res.description&&res.description.invert_sort_order);
+      j.decimalOffset=res.description&&res.description.score_format&&res.description.score_format.options
+        ?res.description.score_format.options.decimal_offset||0:0;
+      j.type=res.description&&res.description.type?res.description.type:'';
+      var opts={quantityTop:quantityTop,includeUser:auth};
+      if(auth) opts.quantityAround=quantityAround;
+      return leaderboard.getLeaderboardEntries(nameLB,opts);
+    }).then(function(res){
+      myGameInstance.SendMessage('YandexGame','LeaderboardEntries',JSON.stringify(Object.assign({},j,EntriesLB(res,maxPlayers,photoSize))));
+    }).catch(function(e){console.error(e);SendEmptyLeaderboard(nameLB);});
+  }catch(e){console.error(e);SendEmptyLeaderboard(nameLB);}
+}
+async function SetLeaderboardScores(name,score){
+  try{
+    if(!leaderboard) await WaitForLeaderboard();
+    await leaderboard.setLeaderboardScore(name,score);
+    console.log('Leaderboard score saved:',name,score);
+  }catch(e){console.error('CRASH Set LB:',e.message);}
+}
+function EntriesLB(res,maxPlayers,photoSize){
+  var n=Math.min(res.entries.length,maxPlayers),txt='';
+  var ranks=[],photos=[],names=[],scores=[],uids=[];
+  for(var i=0;i<n;i++){
+    var e=res.entries[i],ep=e.player||{};
+    ranks[i]=e.rank; scores[i]=e.score; uids[i]=ep.uniqueID||'';
+    photos[i]=(photoSize==='nonePhoto'||typeof ep.getAvatarSrc!=='function')?'':ep.getAvatarSrc(photoSize);
+    names[i]=(ep.scopePermissions&&ep.scopePermissions.public_name!=="allow")
+      ?'anonymous':ep.publicName||ep.name||'anonymous';
+    txt+=ranks[i]+'. '+names[i]+': '+scores[i]+'\n';
+  }
+  return{entries:n===0?'no data':txt,ranks:ranks,photos:photos,names:names,scores:scores,uniqueIDs:uids};
+}
+function SendEmptyLeaderboard(nameLB){
+  if(myGameInstance) myGameInstance.SendMessage('YandexGame','LeaderboardEntries',JSON.stringify({
+    technoName:nameLB,isDefault:false,isInvertSortOrder:false,decimalOffset:0,type:"",
+    entries:"no data",ranks:[],photos:[],names:[],scores:[],uniqueIDs:[]
+  }));
+}
+function RequestingEnvironmentData(sendback){
+  return new Promise(function(resolve){
+    if(!ysdk){resolve('null');return;}
+    try{
+      var promptCanShow=false,reviewCanShow=false;
+      ysdk.feedback.canReview().then(function(d){
+        if(d.value) reviewCanShow=true;
+        ysdk.shortcut.canShowPrompt().then(function(p){
+          if(p.canShow) promptCanShow=true;
+          var ua=navigator.userAgent,browser;
+          if(ua.includes('YaBrowser')||ua.includes('YaSearchBrowser')) browser='Yandex';
+          else if(ua.includes('Opera')||ua.includes('OPR')) browser='Opera';
+          else if(ua.includes('Firefox')) browser='Firefox';
+          else if(ua.includes('MSIE')) browser='IE';
+          else if(ua.includes('Edge')) browser='Edge';
+          else if(ua.includes('Chrome')) browser='Chrome';
+          else if(ua.includes('Safari')) browser='Safari';
+          else browser='Other';
+          var j=JSON.stringify({
+            language:ysdk.environment.i18n.lang,domain:ysdk.environment.i18n.tld,
+            deviceType:ysdk.deviceInfo.type,isMobile:ysdk.deviceInfo.isMobile(),
+            isDesktop:ysdk.deviceInfo.isDesktop(),isTablet:ysdk.deviceInfo.isTablet(),
+            isTV:ysdk.deviceInfo.isTV(),appID:ysdk.environment.app.id,
+            browserLang:ysdk.environment.browser.lang,payload:ysdk.environment.payload,
+            promptCanShow:promptCanShow,reviewCanShow:reviewCanShow,
+            platform:navigator.platform,browser:browser
+          });
+          environmentData=j;
+          if(sendback&&myGameInstance)myGameInstance.SendMessage('YandexGame','SetEnvirData',j);
+          resolve(j); console.log("Environment Data: "+j);
+        });
+      });
+    }catch(e){console.error(e);resolve('null');}
+  });
+}
+function InitPlayer(sendback){
+  return new Promise(function(resolve){
+    try{
+      if(!ysdk){var r=NotAuthorized();if(sendback&&myGameInstance)myGameInstance.SendMessage('YandexGame','SetInitializationSDK',r);resolve(r);return;}
+      ysdk.getPlayer({scopes:true}).then(function(_p){
+        player=_p;
+        if(!player.isAuthorized()){
+          console.log('Not Authorized');
+          var r=NotAuthorized();if(sendback&&myGameInstance)myGameInstance.SendMessage('YandexGame','SetInitializationSDK',r);resolve(r);
+        } else {
+          var j=JSON.stringify({playerAuth:'resolved',playerName:player.getName(),
+            playerId:player.getUniqueID(),playerPhoto:player.getPhoto('small'),
+            payingStatus:player.getPayingStatus()});
+          if(sendback&&myGameInstance)myGameInstance.SendMessage('YandexGame','SetInitializationSDK',j);resolve(j);
+        }
+      }).catch(function(e){console.error(e);var r=NotAuthorized();if(sendback&&myGameInstance)myGameInstance.SendMessage('YandexGame','SetInitializationSDK',r);resolve(r);});
+    }catch(e){console.error(e);var r=NotAuthorized();if(sendback&&myGameInstance)myGameInstance.SendMessage('YandexGame','SetInitializationSDK',r);resolve(r);}
+  });
+}
+function NotAuthorized(){
+  return JSON.stringify({playerAuth:'rejected',playerName:'unauthorized',
+    playerId:'unauthorized',playerPhoto:'unknown',
+    payingStatus:player?player.getPayingStatus():'unknown'});
+}
+function OpenAuthDialog(){
+  if(!ysdk) return;
+  try{
+    ysdk.auth.openAuthDialog().then(function(){
+      InitPlayer(true).then(function(){myGameInstance.SendMessage('YandexGame','GetDataInvoke');});
+    });
+  }catch(e){console.log('CRASH Open Auth Dialog:',e.message);}
+}
+function ResumeGame(){
+  if(myGameInstance&&myGameInstance.Module) myGameInstance.Module.resumeMainLoop();
+  document.querySelectorAll('audio,video').forEach(function(el){el.muted=false;});
+}
+</script>
+<style>
+  #staticMenu{position:fixed;left:12px;top:12px;z-index:2147483640;display:flex;gap:10px;align-items:center;user-select:none;padding:9px 12px;border-radius:8px;background:rgba(13,16,22,.9);border:1px solid rgba(94,225,255,.34);color:#edf7ff;box-shadow:0 12px 30px rgba(0,0,0,.32);font:700 13px/1.2 Arial,Helvetica,sans-serif;backdrop-filter:blur(8px)}
+  #staticMenu a{color:#5ee1ff;text-decoration:none}
+  #closeStaticMenu{color:#ff7272;cursor:pointer;padding:1px 6px;border-radius:5px;background:rgba(255,255,255,.08);border:0;font:700 13px Arial,Helvetica,sans-serif}
+  #staticSlideMenu{position:fixed;bottom:20px;right:20px;z-index:2147483640;width:92px;height:92px;pointer-events:none;opacity:0;transform:translateX(130px) scale(.96)}
+  #staticSlideMenu a,#staticSlideMenu img{display:block;width:100%;height:100%}
+  #staticSlideMenu img{object-fit:contain;border:0;background:transparent;transition:opacity .25s ease}
+  .slide-in{animation:slideIn 2s ease forwards}.slide-out{animation:slideOut 2s ease forwards}.visual-seo-hidden{display:none!important}
+  @keyframes slideIn{from{opacity:0;transform:translateX(130px) scale(.96)}to{opacity:1;transform:translateX(0) scale(1)}}
+  @keyframes slideOut{from{opacity:1;transform:translateX(0) scale(1)}to{opacity:0;transform:translateX(130px) scale(.96)}}
+  @media(max-width:760px){#staticMenu{font-size:12px;max-width:calc(100vw - 24px)}#staticSlideMenu{width:80px;height:80px;right:12px;bottom:12px}}
+</style>
+<nav id="staticMenu" aria-label="StaticQuasar931 menu">
+  <img src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/icon.png" alt="StaticQuasar931" style="width:24px;height:24px;border-radius:5px">
+  <a href="https://sites.google.com/view/staticquasar931/gm3z?utm_source=visualseo_keyboard_escape" target="_blank" rel="noopener">StaticQuasar931</a>
+  <button id="closeStaticMenu" type="button" aria-label="Hide StaticQuasar931 menu">x</button>
+</nav>
+<div id="staticSlideMenu" aria-label="StaticQuasar931 visual links">
+  <a id="staticSlideLink" href="https://sites.google.com/view/staticquasar931/google-form?utm_source=visualseo_keyboard_escape" target="_blank" rel="noopener" aria-label="Open StaticQuasar931 Google Form">
+    <img id="staticSlideImage" src="https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png" alt="StaticQuasar931 Google Form">
+  </a>
+</div>
+<script>
+  console.log("StaticQuasar931 Game - https://sites.google.com/view/staticquasar931/gm3z");
+  window.onbeforeunload = function(){ return "Are you sure you want to leave? Your session may be interrupted."; };
+  (function(){
+    var gameSlug = "keyboard_escape";
+    var staticMenu = document.getElementById("staticMenu");
+    var closeStaticMenu = document.getElementById("closeStaticMenu");
+    var staticSlideMenu = document.getElementById("staticSlideMenu");
+    var staticSlideLink = document.getElementById("staticSlideLink");
+    var staticSlideImage = document.getElementById("staticSlideImage");
+    var visualSeoVisible = true;
+    var keySequence = "";
+    var menuRestoreTimer = null;
+    var slideIndex = 0;
+    var slideItems = [
+      {image:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/GoogleForm.png",href:"https://sites.google.com/view/staticquasar931/google-form?utm_source=visualseo_" + gameSlug,alt:"StaticQuasar931 Google Form",label:"Open StaticQuasar931 Google Form"},
+      {image:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Join_Our_DC_StaticQuassar931_lcplrf.png",href:"https://discord.gg/DP2hM7RRhR",alt:"StaticQuasar931 Discord",label:"Join the StaticQuasar931 Discord"},
+      {image:"https://cdn.jsdelivr.net/gh/StaticQuasar931/Images@main/Follow-us--IG",href:"https://www.instagram.com/freeschoolgamepage/?utm_source=visualseo_" + gameSlug,alt:"StaticQuasar931 Instagram",label:"Follow StaticQuasar931 on Instagram"}
+    ];
+    function setVisualSeoVisible(visible){
+      visualSeoVisible = visible;
+      if(staticMenu) staticMenu.classList.toggle("visual-seo-hidden", !visible);
+      if(staticSlideMenu) staticSlideMenu.classList.toggle("visual-seo-hidden", !visible);
+    }
+    function rotateSlide(){
+      if(!visualSeoVisible || !staticSlideMenu || !staticSlideLink || !staticSlideImage) return;
+      var item = slideItems[slideIndex % slideItems.length];
+      staticSlideImage.src = item.image;
+      staticSlideImage.alt = item.alt;
+      staticSlideLink.href = item.href;
+      staticSlideLink.setAttribute("aria-label", item.label);
+      staticSlideMenu.classList.remove("slide-out");
+      staticSlideMenu.classList.add("slide-in");
+      window.setTimeout(function(){
+        staticSlideMenu.classList.remove("slide-in");
+        staticSlideMenu.classList.add("slide-out");
+      }, 6500);
+      slideIndex++;
+    }
+    if(closeStaticMenu && staticMenu){
+      closeStaticMenu.addEventListener("click", function(){
+        staticMenu.classList.add("visual-seo-hidden");
+        window.clearTimeout(menuRestoreTimer);
+        menuRestoreTimer = window.setTimeout(function(){
+          if(visualSeoVisible) staticMenu.classList.remove("visual-seo-hidden");
+        }, 180000);
+      });
+    }
+    document.addEventListener("keydown", function(event){
+      keySequence = (keySequence + String(event.key || "").toLowerCase()).slice(-3);
+      if(keySequence === "yui"){
+        setVisualSeoVisible(!visualSeoVisible);
+        keySequence = "";
+      }
+    }, true);
+    setVisualSeoVisible(true);
+    window.setTimeout(rotateSlide, 1800);
+    window.setInterval(rotateSlide, 12500);
+  })();
+</script>
+</body>
+</html>
+
+
+
