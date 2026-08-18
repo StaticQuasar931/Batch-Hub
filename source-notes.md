@@ -28,5 +28,8 @@
 
 - 2026-08-15 image cleanup: replaced donor loading logos with neutral game-title startup text, changed 67 Clicker to the provided 67clicker AVIF asset, and changed Keyboard Escape to the provided keyboard background WebP asset.
 
-
+## 2026-08-17 Chameleon Batch
+- Meccha Chameleon Clicker: built from `yandex.com(1).zip`; original product string was `PVZ Clicker`; missing zero-byte data file was recovered from the matching public Yandex CDN URL and renamed to local `engine.data`.
+- Meccha Chameleon Online Clone: built from `yandex.com.zip`; original product string was `chameleon`; missing zero-byte data file was recovered from the matching public Yandex CDN URL and renamed to local `chameleon.data`.
+- Both new pages are labeled as clone/remake pages because public Meccha Chameleon information indicates the official game is not a free browser build.
 
