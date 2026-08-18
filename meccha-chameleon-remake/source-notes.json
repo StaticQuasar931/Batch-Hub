@@ -1,0 +1,12 @@
+{
+  "title": "Meccha Chameleon Remake",
+  "note": "Fan-style remake/copy label used intentionally. Not the official Meccha Chameleon.",
+  "source_zip": "mecha-main.zip",
+  "removed": [
+    "1.xml"
+  ],
+  "renamed_assets": {
+    "Build/ff.data.br": "Build/ff.data",
+    "Build/ff.wasm.br": "Build/ff.wasm.part0..part1"
+  }
+}
